@@ -97,8 +97,11 @@
 
         <div class="mx-carousel" id="mxc-layer-carousel">
         <div class="mx-layers">
-          <div class="mx-layers__strip" aria-hidden="true">
-            <img src="assets/img/mattress/layers.png" alt="" />
+          <!-- Figma node 1784:13047: this mattress's Top Layers slide uses
+               the same stack photo as Comfort/Support (layers-2.png), not
+               the original Spinetech Air's own layers.png. -->
+          <div class="mx-layers__strip mx-layers__strip--alt" aria-hidden="true">
+            <img src="assets/img/mattress/layers-2.png" alt="" />
             <span class="mx-pin" style="top: 12px">1</span>
             <span class="mx-pin" style="top: 50px">2</span>
             <span class="mx-pin" style="top: 78px">3</span>

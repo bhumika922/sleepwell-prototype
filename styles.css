@@ -1469,12 +1469,21 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
   overflow: hidden;
 }
 
-/* slides 2 and 3 use a different cut of the stack, scaled wider */
+/* Slides 2 and 3 use a different cut of the stack, scaled wider — and,
+   confirmed against Figma's own rendered screenshot, mirrored left-right
+   versus the plain strip. (Its exported code applies a scaleY+rotate180
+   pair to get there, which nets out to a horizontal flip — not something
+   to trust literally, per this component's other measured-off-the-render
+   values above.) transform flips the photo in place; left is shifted by
+   the image width minus the window width (651 - 69) to keep the same
+   near-corner region on screen after the mirror moves it to the opposite
+   edge of the image's own box. */
 .mx-layers__strip--alt img {
-  left: 3px;
+  left: -582px;
   top: -23.5px;
   width: 651px;
   height: 337px;
+  transform: scaleX(-1);
 }
 
 /* A 72px window onto a much wider cross-section, fading to white so the
