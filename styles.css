@@ -1221,6 +1221,11 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
   padding: 0 12px;
 }
 
+.mx-tag-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
 .mx-tag {
   display: flex;
   align-items: center;
@@ -1229,6 +1234,7 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
   padding: 5px 11px;
   border: 1px solid var(--grey-2);
   border-radius: 4px;
+  background: none;
   font-size: 11px;
   line-height: 16px;
   font-weight: 700;
@@ -1236,6 +1242,33 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
   text-transform: uppercase;
   color: var(--dark);
 }
+
+/* Tag tooltip (Figma node 1864:12982, "Tag Overlay"). Tap a tag to open it;
+   tapping any tag or elsewhere closes whichever is open. */
+.tag-tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 4px);
+  padding: 8px 8px 10px;
+  border-radius: 8px;
+  background: #2E2E2E;
+  color: var(--white);
+  font-size: 13px;
+  line-height: 19px;
+  white-space: nowrap;
+  z-index: 5;
+}
+.tag-tip::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  bottom: -4px;
+  width: 8px;
+  height: 8px;
+  background: #2E2E2E;
+  transform: rotate(45deg);
+}
+.tag-tip[hidden] { display: none; }
 
 .mx-controls {
   margin: 0 12px;

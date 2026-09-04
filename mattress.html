@@ -30,8 +30,14 @@
       </div>
 
       <div class="mx-tags">
-        <span class="mx-tag">SPN</span>
-        <span class="mx-tag">RES</span>
+        <span class="mx-tag-wrap">
+          <button class="mx-tag" type="button" aria-expanded="false" aria-describedby="tag-tip-spn">SPN</button>
+          <span class="tag-tip" id="tag-tip-spn" role="tooltip" hidden>+ Spring</span>
+        </span>
+        <span class="mx-tag-wrap">
+          <button class="mx-tag" type="button" aria-expanded="false" aria-describedby="tag-tip-res">RES</button>
+          <span class="tag-tip" id="tag-tip-res" role="tooltip" hidden>+ Resitec</span>
+        </span>
       </div>
 
       <div class="mx-controls" role="group" aria-label="Comfort">
@@ -526,6 +532,34 @@
   </div>
 
 <script>
+// Tag tooltips (Figma node 1864:12982, "Tag Overlay"). Tapping a tag opens
+// its tooltip; tapping any tag or elsewhere closes whichever is open, and
+// opening one closes any other, so at most one shows at a time.
+(function () {
+  var tags = [].slice.call(document.querySelectorAll('.mx-tag'));
+  if (!tags.length) return;
+
+  function closeAll() {
+    tags.forEach(function (t) {
+      t.setAttribute('aria-expanded', 'false');
+      t.nextElementSibling.hidden = true;
+    });
+  }
+
+  tags.forEach(function (tag) {
+    var tip = tag.nextElementSibling;
+    tag.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var opening = tip.hidden;
+      closeAll();
+      tip.hidden = !opening;
+      tag.setAttribute('aria-expanded', String(opening));
+    });
+  });
+
+  document.addEventListener('click', closeAll);
+}());
+
 // The comfort row picks which segment is highlighted. Similar (Figma node
 // 1883:15070) and Softer (1784:13399) each swap the mattress's own sections
 // for their own upsell/downsell bands and swap the bottom bar for the Hide
