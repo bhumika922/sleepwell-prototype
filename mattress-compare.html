@@ -4,16 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#FFFFFF" />
-<title>Spinetech Air · Sleepwell</title>
+<title>Spinetech Air Luxury · Sleepwell</title>
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="phone phone--mx">
 
-    <!-- Pinned: this frame has no Sleepwell header, the mattress block is the top -->
+    <!-- Comparison mode (Figma node 1777:11758): reached from a recommendation
+         card on Firmer/Similar/Softer. The sticky header shows the clicked
+         mattress with its tags/softness/price diffed against the mattress the
+         card was clicked from, and the VS card below names that mattress. -->
     <div class="sticky-top mx-sticky">
       <div class="mx-head">
-        <h1 class="mx-head__name">Spinetech Air</h1>
+        <h1 class="mx-head__name">Spinetech Air Luxury</h1>
         <span class="mx-head__flag">
           <span class="mx-head__badge" title="Bestseller">
             <img src="assets/icons/bestseller-star.svg" alt="Bestseller" />
@@ -23,20 +26,35 @@
 
       <div class="mx-facts">
         <div class="mx-facts__row">
-          <span class="mx-facts__softness">Medium Firm</span>
-          <span class="mx-facts__price">₹30,027</span>
+          <span class="mattress__softness-grade" id="mxc-softness">
+            <span class="softness-indicator" id="mxc-softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+            <span class="mx-facts__softness">Medium Soft</span>
+          </span>
+          <span class="mx-facts__price mx-facts__price--cmp" id="mxc-price">₹38,977</span>
         </div>
         <p class="mx-facts__blurb">Advanced movement support with extra bounce and double long-lasting coir layers for the right firmness.</p>
       </div>
 
-      <div class="mx-tags">
+      <div class="mx-tags" id="mxc-tags">
         <span class="mx-tag-wrap">
-          <button class="mx-tag" type="button" aria-expanded="false" aria-describedby="tag-tip-spn">SPN</button>
-          <span class="tag-tip" id="tag-tip-spn" role="tooltip" hidden>Spring</span>
+          <button class="mx-tag mx-tag--added" type="button" data-cmp="added" aria-expanded="false" aria-describedby="tag-tip-mem">
+            <img class="mx-tag__icon" src="assets/icons/tag-added.svg" alt="" />MEM
+          </button>
+          <span class="tag-tip" id="tag-tip-mem" role="tooltip" hidden>Memory Foam</span>
         </span>
         <span class="mx-tag-wrap">
-          <button class="mx-tag" type="button" aria-expanded="false" aria-describedby="tag-tip-res">RES</button>
-          <span class="tag-tip" id="tag-tip-res" role="tooltip" hidden>Resitec</span>
+          <button class="mx-tag" type="button" aria-expanded="false" aria-describedby="tag-tip-spn2">SPN</button>
+          <span class="tag-tip" id="tag-tip-spn2" role="tooltip" hidden>Spring</span>
+        </span>
+        <span class="mx-tag-wrap">
+          <button class="mx-tag" type="button" aria-expanded="false" aria-describedby="tag-tip-res2">RES</button>
+          <span class="tag-tip" id="tag-tip-res2" role="tooltip" hidden>Resitec</span>
+        </span>
+        <span class="mx-tag-wrap">
+          <button class="mx-tag mx-tag--removed" type="button" data-cmp="removed" aria-expanded="false" aria-describedby="tag-tip-zpd">
+            <img class="mx-tag__icon" src="assets/icons/tag-removed.svg" alt="" />ZPD
+          </button>
+          <span class="tag-tip" id="tag-tip-zpd" role="tooltip" hidden>Zero Partner Disturbance</span>
         </span>
       </div>
 
@@ -48,13 +66,33 @@
       </div>
     </div>
 
-    <main class="mx" id="mx-main">
+    <!-- The mattress this page was reached from. Always Spinetech Air, same
+         as every other flow in this prototype that only has one real
+         "previous" mattress to point back to. -->
+    <div class="mxc-vs" id="mxc-vs">
+      <span class="mxc-vs__badge">vs</span>
+      <div class="mxc-vs__card">
+        <div class="mxc-vs__head">
+          <span class="mxc-vs__name">Spinetech Air</span>
+          <span class="mx-head__flag">
+            <span class="mx-head__badge" title="Bestseller"><img src="assets/icons/bestseller-star.svg" alt="Bestseller" /></span>
+          </span>
+        </div>
+        <div class="mxc-vs__row">
+          <span class="mxc-vs__softness">Medium Firm</span>
+          <span class="mxc-vs__price">₹30,027</span>
+        </div>
+      </div>
+    </div>
 
-      <!-- Layer breakup -->
+    <main class="mx" id="mxc-main">
+
+      <!-- Layer breakup: a compact static preview here rather than the
+           interactive carousel on mattress.html — the Figma frame shows one
+           slide with a flat pagination graphic and no scroll/tab behavior,
+           and no destination is specified for it, so it's non-interactive. -->
       <section class="mx-sec">
         <h2 class="mx-sec__eyebrow">Layer breakup</h2>
-
-        <div class="mx-carousel" id="layer-carousel">
         <div class="mx-layers">
           <div class="mx-layers__strip" aria-hidden="true">
             <img src="assets/img/mattress/layers.png" alt="" />
@@ -78,7 +116,7 @@
               <li class="mx-layer">
                 <span class="mx-pin mx-pin--static">2</span>
                 <span class="mx-layer__text">
-                  <span class="mx-layer__name">Impressions and Resitec Quilting</span>
+                  <span class="mx-layer__name">Impressions and Double Quiltec quilting</span>
                   <span class="mx-layer__desc">Cozy, plush &amp; deep with extra responsiveness</span>
                 </span>
               </li>
@@ -92,79 +130,16 @@
             </ul>
           </div>
         </div>
-        <div class="mx-layers">
-          <div class="mx-layers__strip mx-layers__strip--alt" aria-hidden="true">
-            <img src="assets/img/mattress/layers-2.png" alt="" />
-            <span class="mx-pin" style="top: 12px">1</span>
-            <span class="mx-pin" style="top: 50px">2</span>
-            <span class="mx-pin" style="top: 78px">3</span>
-            <span class="mx-pin" style="top: 111px">4</span>
-            <span class="mx-pin" style="top: 151px">5</span>
-            <span class="mx-pin" style="top: 185px">6</span>
-          </div>
-          <div class="mx-layers__info">
-            <h3 class="mx-layers__title">Comfort Layers</h3>
-            <ul class="mx-layers__list">
-              <li class="mx-layer">
-                <span class="mx-pin mx-pin--static">3</span>
-                <span class="mx-layer__text">
-                  <span class="mx-layer__name">Impressions Foam</span>
-                  <span class="mx-layer__desc">Contour hugging, even pressure distribution and enhanced blood circulation</span>
-                </span>
-              </li>
-              <li class="mx-layer">
-                <span class="mx-pin mx-pin--static">4</span>
-                <span class="mx-layer__text">
-                  <span class="mx-layer__name">Resitec Foam</span>
-                  <span class="mx-layer__desc">Responsive, medium firm, breathable, all weather, pressure distribution</span>
-                </span>
-              </li>
-              <li class="mx-layer">
-                <span class="mx-pin mx-pin--static">5</span>
-                <span class="mx-layer__text">
-                  <span class="mx-layer__name">Reticool Foam</span>
-                  <span class="mx-layer__desc">Gentle feel with enhanced airflow</span>
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="mx-layers">
-          <div class="mx-layers__strip mx-layers__strip--alt" aria-hidden="true">
-            <img src="assets/img/mattress/layers-2.png" alt="" />
-            <span class="mx-pin" style="top: 12px">1</span>
-            <span class="mx-pin" style="top: 50px">2</span>
-            <span class="mx-pin" style="top: 78px">3</span>
-            <span class="mx-pin" style="top: 111px">4</span>
-            <span class="mx-pin" style="top: 151px">5</span>
-            <span class="mx-pin" style="top: 185px">6</span>
-          </div>
-          <div class="mx-layers__info">
-            <h3 class="mx-layers__title">Support Layers</h3>
-            <ul class="mx-layers__list">
-              <li class="mx-layer">
-                <span class="mx-pin mx-pin--static">6</span>
-                <span class="mx-layer__text">
-                  <span class="mx-layer__name">Rebonded Foam</span>
-                  <span class="mx-layer__desc">High firmness, zero environmental wastage</span>
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        </div>
-
-        <div class="mx-dots" id="layer-dots" role="tablist" aria-label="Layer groups">
-          <button class="mx-dots__dot is-on" type="button" role="tab" aria-selected="true" aria-label="Top layers"></button>
-          <button class="mx-dots__dot" type="button" role="tab" aria-selected="false" aria-label="Comfort layers"></button>
-          <button class="mx-dots__dot" type="button" role="tab" aria-selected="false" aria-label="Support layers"></button>
+        <div class="mx-dots" aria-hidden="true">
+          <span class="mx-dots__dot is-on"></span>
+          <span class="mx-dots__dot"></span>
+          <span class="mx-dots__dot"></span>
         </div>
       </section>
 
       <!-- Thickness variants -->
       <section class="mx-sec">
         <h2 class="mx-sec__eyebrow">Thickness Variants</h2>
-
         <div class="mx-thick">
           <div class="mx-thick__row">
             <span class="mx-thick__item">
@@ -185,55 +160,56 @@
         </div>
       </section>
 
-      <!-- Image gallery -->
+      <!-- Image gallery: static here, no full-size zoom viewer specified for
+           this mattress's photos. -->
       <section class="mx-sec">
         <h2 class="mx-sec__eyebrow">Image gallery</h2>
-
         <div class="mx-gallery">
-          <button class="mx-gallery__item" type="button" data-index="0" aria-label="Open image 1 full size"><img src="assets/img/mattress/gallery-1.png" alt="" /></button>
-          <button class="mx-gallery__item" type="button" data-index="1" aria-label="Open image 2 full size"><img src="assets/img/mattress/gallery-2.png" alt="" /></button>
-          <button class="mx-gallery__item" type="button" data-index="2" aria-label="Open image 3 full size"><img src="assets/img/mattress/gallery-3.png" alt="" /></button>
-          <button class="mx-gallery__item" type="button" data-index="3" aria-label="Open image 4 full size"><img src="assets/img/mattress/gallery-4.png" alt="" /></button>
+          <img src="assets/img/mattress-luxury/gallery-1.png" alt="" />
+          <img src="assets/img/mattress-luxury/gallery-2.png" alt="" />
+          <img src="assets/img/mattress-luxury/gallery-3.png" alt="" />
+          <img src="assets/img/mattress-luxury/gallery-4.png" alt="" />
         </div>
       </section>
 
-      <!-- Related pillows -->
+      <!-- Related pillows: same four pillows, names and prices as
+           mattress.html's own — the design's own data, so the local photos
+           are reused rather than fetching four near-duplicate exports. -->
       <section class="mx-sec">
         <h2 class="mx-sec__eyebrow">Related Pillows</h2>
-
         <div class="mx-pillows">
-          <button class="mx-pillow" type="button" id="pillow-1">
+          <div class="mx-pillow">
             <img src="assets/img/mattress/pillow-1.png" alt="" />
             <span class="mx-pillow__name">Indulgence Air pillow</span>
             <span class="mx-pillow__price">₹1,799</span>
-          </button>
-          <a class="mx-pillow" href="#">
+          </div>
+          <div class="mx-pillow">
             <img src="assets/img/mattress/pillow-2.png" alt="" />
             <span class="mx-pillow__name">Amaze Memory pillow</span>
             <span class="mx-pillow__price">₹2,299</span>
-          </a>
-          <a class="mx-pillow" href="#">
+          </div>
+          <div class="mx-pillow">
             <img src="assets/img/mattress/pillow-3.png" alt="" />
             <span class="mx-pillow__name">Xperia Pillow</span>
             <span class="mx-pillow__price">₹2,399</span>
-          </a>
-          <a class="mx-pillow" href="#">
+          </div>
+          <div class="mx-pillow">
             <img src="assets/img/mattress/pillow-4.png" alt="" />
             <span class="mx-pillow__name">Contour Memory pillow</span>
             <span class="mx-pillow__price">₹2,999</span>
-          </a>
+          </div>
         </div>
       </section>
 
     </main>
 
-    <!-- Comfort comparison (Softer), Figma node 1784:13399 -->
-    <div class="mx-recs" id="mx-recs-softer" hidden>
+    <!-- Comfort comparison (Softer) — same static bands as mattress.html -->
+    <div class="mx-recs" id="mxc-recs-softer" hidden>
 
       <div class="mx-recs__band mx-recs__band--up">
         <h2 class="mx-recs__eyebrow mx-recs__eyebrow--up">Softer upsell</h2>
         <div class="mx-recs__row">
-          <a class="mattress rec-card" href="mattress-compare.html">
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">Esteem</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹35,769</span>
@@ -242,14 +218,14 @@
                 <span class="mattress__softness">Medium Soft</span>
               </span>
             </span>
-          </a>
-          <a class="mattress rec-card" href="mattress-compare.html">
+          </div>
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">CCT 1.0</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹44,693</span>
               <span class="mattress__softness">Medium Firm</span>
             </span>
-          </a>
+          </div>
           <a class="mattress rec-card" href="mattress-compare.html">
             <span class="rec-card__head">
               <span class="mattress__name">Spinetech Air Luxury</span>
@@ -263,7 +239,7 @@
               </span>
             </span>
           </a>
-          <a class="mattress rec-card" href="mattress-compare.html">
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">Eminence</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹44,712</span>
@@ -272,14 +248,14 @@
                 <span class="mattress__softness">Medium Soft</span>
               </span>
             </span>
-          </a>
-          <a class="mattress rec-card" href="mattress-compare.html">
+          </div>
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">Revital 4.0</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹35,769</span>
               <span class="mattress__softness">Medium Soft</span>
             </span>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -332,15 +308,13 @@
 
     </div>
 
-    <!-- Comfort comparison (Similar), Figma node 1883:15070. Same five
-         mattresses per band as Softer — that's the design's own data, not
-         a copy-paste slip here. -->
-    <div class="mx-recs" id="mx-recs-similar" hidden>
+    <!-- Comfort comparison (Similar) — same static bands as mattress.html -->
+    <div class="mx-recs" id="mxc-recs-similar" hidden>
 
       <div class="mx-recs__band mx-recs__band--up">
         <h2 class="mx-recs__eyebrow mx-recs__eyebrow--up">Similar upsell</h2>
         <div class="mx-recs__row">
-          <a class="mattress rec-card" href="mattress-compare.html">
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">Esteem</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹35,769</span>
@@ -349,14 +323,14 @@
                 <span class="mattress__softness">Medium Soft</span>
               </span>
             </span>
-          </a>
-          <a class="mattress rec-card" href="mattress-compare.html">
+          </div>
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">CCT 1.0</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹44,693</span>
               <span class="mattress__softness">Medium Firm</span>
             </span>
-          </a>
+          </div>
           <a class="mattress rec-card" href="mattress-compare.html">
             <span class="rec-card__head">
               <span class="mattress__name">Spinetech Air Luxury</span>
@@ -370,7 +344,7 @@
               </span>
             </span>
           </a>
-          <a class="mattress rec-card" href="mattress-compare.html">
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">Eminence</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹44,712</span>
@@ -379,14 +353,14 @@
                 <span class="mattress__softness">Medium Soft</span>
               </span>
             </span>
-          </a>
-          <a class="mattress rec-card" href="mattress-compare.html">
+          </div>
+          <div class="mattress rec-card">
             <span class="rec-card__head"><span class="mattress__name">Revital 4.0</span></span>
             <span class="mattress__meta">
               <span class="mattress__price">₹35,769</span>
               <span class="mattress__softness">Medium Soft</span>
             </span>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -439,17 +413,8 @@
 
     </div>
 
-    <!-- Buzzword band (Figma node 1883:15070, "Blue Band Indicator"). Shows
-         only when this page was reached via a buzzword chip, on whichever
-         of Firmer/Similar/Softer is active — Info has no comparison, so no
-         buzzword context to show. -->
-    <div class="mx-buzzband" id="mx-buzzband" hidden>
-      <p class="mx-buzzband__text" id="mx-buzzband-text"></p>
-      <button class="mx-buzzband__reset" type="button" id="mx-buzzband-reset">Reset</button>
-    </div>
-
     <!-- Bottom bar -->
-    <div class="mx-actions" id="mx-actions-default">
+    <div class="mx-actions" id="mxc-actions-default">
       <a class="mx-actions__back" href="reference-mattresses.html" aria-label="Back to reference mattresses">
         <img src="assets/icons/nav-back-32.svg" alt="" />
       </a>
@@ -462,8 +427,8 @@
       </div>
     </div>
 
-    <!-- Bottom bar: comfort comparison variant (Softer) -->
-    <div class="mx-actions mx-actions--toggles" id="mx-actions-toggles" hidden>
+    <!-- Bottom bar: comfort comparison variant (Firmer/Similar/Softer) -->
+    <div class="mx-actions mx-actions--toggles" id="mxc-actions-toggles" hidden>
       <a class="mx-actions__back" href="reference-mattresses.html" aria-label="Back to reference mattresses">
         <img src="assets/icons/nav-back-32.svg" alt="" />
       </a>
@@ -479,62 +444,12 @@
       </div>
     </div>
 
-    <!-- Full-size gallery (Figma node 1883:15068) -->
-    <div class="overlay" id="zoom" hidden role="dialog" aria-modal="true" aria-label="Image gallery">
-      <div class="zoom">
-        <div class="zoom__stage" id="zoom-stage">
-          <div class="zoom__track" id="zoom-track">
-            <img src="assets/img/mattress/gallery-1.png" alt="" />
-            <img src="assets/img/mattress/gallery-2.png" alt="" />
-            <img src="assets/img/mattress/gallery-3.png" alt="" />
-            <img src="assets/img/mattress/gallery-4.png" alt="" />
-          </div>
-        </div>
-        <div class="zoom__dots" id="zoom-dots">
-          <button type="button" class="is-on" aria-label="Image 1"></button>
-          <button type="button" aria-label="Image 2"></button>
-          <button type="button" aria-label="Image 3"></button>
-          <button type="button" aria-label="Image 4"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillow card (Figma node 1787:14724) -->
-    <div class="overlay" id="pillow-modal" hidden role="dialog" aria-modal="true" aria-labelledby="pillow-title">
-      <div class="pillow-card">
-        <div class="pillow-card__head">
-          <h2 class="pillow-card__title" id="pillow-title">Indulgence Air pillow</h2>
-          <button class="pillow-card__close" type="button" aria-label="Close">
-            <img src="assets/icons/close.svg" alt="" />
-          </button>
-        </div>
-
-        <div class="pillow-card__strip">
-          <img src="assets/img/mattress/pillow-1-a.png" alt="" style="width: 288px" />
-          <img src="assets/img/mattress/pillow-1-b.png" alt="" style="width: 384px" />
-          <img src="assets/img/mattress/pillow-1-c.png" alt="" style="width: 288px" />
-        </div>
-
-        <div class="pillow-card__copy">
-          <b>Why &lsquo;Cold Cure Moulding Technology&rsquo; foam?</b>
-          <span>Good for best ergonomic impact, moulded foam tech allows your pillow to be moulded into any shape.</span>
-        </div>
-
-        <div class="pillow-card__rule"></div>
-
-        <div class="pillow-card__foot">
-          <span class="pillow-card__dims">67 cm x 46 cm x 13 cm</span>
-          <span class="pillow-card__price">₹1,799</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 <script>
-// Tag tooltips (Figma node 1864:12982, "Tag Overlay"). Tapping a tag opens
-// its tooltip; tapping any tag or elsewhere closes whichever is open, and
-// opening one closes any other, so at most one shows at a time.
+// Tag tooltips (Figma node 1864:12982, "Tag Overlay") — same behavior as
+// mattress.html: tapping a tag opens its tooltip, tapping any tag or
+// elsewhere closes whichever is open.
 (function () {
   var tags = [].slice.call(document.querySelectorAll('.mx-tag'));
   if (!tags.length) return;
@@ -560,26 +475,24 @@
   document.addEventListener('click', closeAll);
 }());
 
-// The comfort row picks which segment is highlighted. Similar (Figma node
-// 1883:15070) and Softer (1784:13399) each swap the mattress's own sections
-// for their own upsell/downsell bands and swap the bottom bar for the Hide
-// spring/coir toggles; Firmer has no design yet, so on its own it just
-// restores the mattress view, same as Info.
-//
-// A page reached via a buzzword chip (?buzzword=Name) is the exception:
-// Similar is the default landing segment, and the toggle bar plus a
-// "'Name' buzzword applied" band stay up across all three of Firmer,
-// Similar and Softer — only Info drops them, since it isn't a comparison.
+// The comfort row: Info is the comparison view this page opens on — tags
+// carry their added/removed state, the softness indicator shows, and the
+// price reads green. Similar (Figma 1883:15070) and Softer (1784:13399)
+// reuse the same static upsell/downsell bands as mattress.html; Firmer has
+// no design, so it just shows the plain mattress view. Leaving Info for any
+// of the three drops the comparison entirely — tags go plain, the indicator
+// hides, the price reverts to navy — since you're no longer looking at this
+// mattress specifically against the one you came from.
 (function () {
   var segs = [].slice.call(document.querySelectorAll('.mx-controls__seg'));
-  var main = document.getElementById('mx-main');
-  var recsSimilar = document.getElementById('mx-recs-similar');
-  var recsSofter = document.getElementById('mx-recs-softer');
-  var actionsDefault = document.getElementById('mx-actions-default');
-  var actionsToggles = document.getElementById('mx-actions-toggles');
-  var buzzband = document.getElementById('mx-buzzband');
-  var buzzbandText = document.getElementById('mx-buzzband-text');
-  var buzzword = null;
+  var main = document.getElementById('mxc-main');
+  var recsSimilar = document.getElementById('mxc-recs-similar');
+  var recsSofter = document.getElementById('mxc-recs-softer');
+  var actionsDefault = document.getElementById('mxc-actions-default');
+  var actionsToggles = document.getElementById('mxc-actions-toggles');
+  var softnessIndicator = document.getElementById('mxc-softness-indicator');
+  var price = document.getElementById('mxc-price');
+  var tags = document.getElementById('mxc-tags');
 
   function activeName() {
     return document.querySelector('.mx-controls__seg--info').textContent.trim();
@@ -587,45 +500,31 @@
 
   function render() {
     var name = activeName();
+    var isInfo = name === 'Info';
     var isSimilar = name === 'Similar';
     var isSofter = name === 'Softer';
-    var isComparison = name === 'Firmer' || isSimilar || isSofter;
 
     main.hidden = isSimilar || isSofter;
     recsSimilar.hidden = !isSimilar;
     recsSofter.hidden = !isSofter;
 
-    var showToggles = isSimilar || isSofter || (name === 'Firmer' && buzzword);
+    var showToggles = isSimilar || isSofter;
     actionsDefault.hidden = showToggles;
     actionsToggles.hidden = !showToggles;
 
-    var showBand = !!buzzword && isComparison;
-    buzzband.hidden = !showBand;
-    if (showBand) buzzbandText.textContent = "'" + buzzword + "' buzzword applied";
-  }
-
-  function activate(name) {
-    segs.forEach(function (s) { s.classList.toggle('mx-controls__seg--info', s.textContent.trim() === name); });
-    render();
+    softnessIndicator.hidden = !isInfo;
+    price.classList.toggle('mx-facts__price--cmp', isInfo);
+    tags.querySelectorAll('.mx-tag[data-cmp]').forEach(function (t) {
+      t.classList.toggle('mx-tag--' + t.dataset.cmp, isInfo);
+    });
   }
 
   segs.forEach(function (seg) {
-    seg.addEventListener('click', function () { activate(seg.textContent.trim()); });
+    seg.addEventListener('click', function () {
+      segs.forEach(function (s) { s.classList.toggle('mx-controls__seg--info', s === seg); });
+      render();
+    });
   });
-
-  buzzband.querySelector('#mx-buzzband-reset').addEventListener('click', function () {
-    buzzword = null;
-    var url = new URL(location.href);
-    url.searchParams.delete('buzzword');
-    history.replaceState(null, '', url);
-    render();
-  });
-
-  var fromBuzzword = new URLSearchParams(location.search).get('buzzword');
-  if (fromBuzzword) {
-    buzzword = fromBuzzword;
-    activate('Similar');
-  }
 
   var demo = document.querySelector('.mx-actions__demo');
   demo.addEventListener('click', function () {
@@ -637,185 +536,11 @@
       t.setAttribute('aria-checked', String(t.getAttribute('aria-checked') !== 'true'));
     });
   });
+
+  render();
 }());
 
-// Full-size gallery with pinch-to-zoom and swipe-between-images (Figma
-// node 1883:15068). touch-action is off on the stage, so a plain scroll
-// container isn't an option — swiping is another pointer gesture here,
-// alongside pinch and pan-when-zoomed.
-(function () {
-  var overlay = document.getElementById('zoom');
-  var stage = document.getElementById('zoom-stage');
-  var track = document.getElementById('zoom-track');
-  var dots = [].slice.call(document.getElementById('zoom-dots').children);
-  var index = 0, scale = 1, tx = 0, ty = 0;
-  var pointers = new Map(), startDist = 0, startScale = 1, panFrom = null;
-  var swiping = false, swipeFrom = 0, swipeDX = 0;
-
-  function img() { return track.children[index]; }
-
-  function paint() {
-    track.style.transform = 'translateX(calc(' + (-index * 100) + '% + ' + swipeDX + 'px))';
-    img().style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
-    dots.forEach(function (d, i) { d.classList.toggle('is-on', i === index); });
-  }
-
-  function reset() { scale = 1; tx = 0; ty = 0; }
-
-  function show(i) {
-    [].forEach.call(track.children, function (el) { el.style.transform = ''; });
-    index = i; reset(); paint();
-  }
-
-  [].forEach.call(document.querySelectorAll('.mx-gallery__item'), function (btn) {
-    btn.addEventListener('click', function () {
-      overlay.hidden = false;
-      show(Number(btn.dataset.index));
-    });
-  });
-
-  dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
-
-  // Anything that is not the image or the dots counts as outside — including
-  // the gap between them, which belongs to .zoom rather than the overlay.
-  overlay.addEventListener('click', function (e) {
-    if (!e.target.closest('.zoom__stage, .zoom__dots')) overlay.hidden = true;
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !overlay.hidden) overlay.hidden = true;
-  });
-
-  function dist() {
-    var p = [].slice.call(pointers.values());
-    return Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
-  }
-
-  stage.addEventListener('pointerdown', function (e) {
-    // the stage owns this gesture end to end — without preventDefault, a
-    // mouse drag starting on the <img> triggers the browser's native
-    // "drag this image out" instead, which steals the pointer mid-gesture
-    e.preventDefault();
-    stage.setPointerCapture(e.pointerId);
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (pointers.size === 2) {
-      swiping = false;
-      startDist = dist(); startScale = scale;
-    } else if (scale > 1) {
-      panFrom = { x: e.clientX - tx, y: e.clientY - ty };
-    } else {
-      // at rest (not zoomed in), one finger swipes between images
-      swiping = true;
-      swipeFrom = e.clientX;
-      track.style.transition = 'none';
-    }
-  });
-
-  stage.addEventListener('pointermove', function (e) {
-    if (!pointers.has(e.pointerId)) return;
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-
-    if (pointers.size === 2) {
-      scale = Math.min(4, Math.max(1, startScale * (dist() / startDist)));
-      if (scale === 1) { tx = 0; ty = 0; }
-      paint();
-    } else if (panFrom && scale > 1) {
-      tx = e.clientX - panFrom.x;
-      ty = e.clientY - panFrom.y;
-      paint();
-    } else if (swiping) {
-      var dx = e.clientX - swipeFrom;
-      var atStart = index === 0, atEnd = index === track.children.length - 1;
-      // rubber-band past the first/last image instead of sliding into nothing
-      if ((atStart && dx > 0) || (atEnd && dx < 0)) dx *= 0.35;
-      swipeDX = dx;
-      paint();
-    }
-  });
-
-  function lift(e) {
-    pointers.delete(e.pointerId);
-    if (pointers.size < 2) startDist = 0;
-    if (!pointers.size) panFrom = null;
-
-    if (swiping && !pointers.size) {
-      swiping = false;
-      track.style.transition = '';
-      var threshold = stage.clientWidth * 0.2;
-      if (swipeDX <= -threshold && index < track.children.length - 1) index += 1;
-      else if (swipeDX >= threshold && index > 0) index -= 1;
-      swipeDX = 0;
-      paint();
-    }
-  }
-  stage.addEventListener('pointerup', lift);
-  stage.addEventListener('pointercancel', lift);
-
-  // double-tap toggles between fit and 2x, the usual companion to pinch
-  var lastTap = 0;
-  stage.addEventListener('click', function () {
-    var now = Date.now();
-    if (now - lastTap < 300) { scale = scale > 1 ? 1 : 2; tx = 0; ty = 0; paint(); }
-    lastTap = now;
-  });
-
-  // wheel-zoom so the gesture is reachable on a trackpad too
-  stage.addEventListener('wheel', function (e) {
-    e.preventDefault();
-    scale = Math.min(4, Math.max(1, scale - e.deltaY * 0.003));
-    if (scale === 1) { tx = 0; ty = 0; }
-    paint();
-  }, { passive: false });
-}());
-
-// Pillow card (Figma node 1787:14724).
-(function () {
-  var overlay = document.getElementById('pillow-modal');
-  document.getElementById('pillow-1').addEventListener('click', function () {
-    overlay.hidden = false;
-  });
-  overlay.querySelector('.pillow-card__close').addEventListener('click', function () {
-    overlay.hidden = true;
-  });
-  overlay.addEventListener('click', function (e) {
-    if (!e.target.closest('.pillow-card')) overlay.hidden = true;
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !overlay.hidden) overlay.hidden = true;
-  });
-}());
-
-// Layer breakup carousel: three slides (Figma 1711:11281, 1883:15475,
-// 1883:15671) sharing one pagination row.
-(function () {
-  var track = document.getElementById('layer-carousel');
-  var dots = [].slice.call(document.getElementById('layer-dots').children);
-  var GAP = 12; // must match .mx-carousel's gap
-
-  function pitch() { return track.clientWidth + GAP; }
-  function current() {
-    return Math.round(track.scrollLeft / pitch());
-  }
-  function paint() {
-    var i = current();
-    dots.forEach(function (d, n) {
-      d.classList.toggle('is-on', n === i);
-      d.setAttribute('aria-selected', String(n === i));
-    });
-  }
-
-  dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      track.scrollTo({ left: i * pitch(), behavior: 'smooth' });
-    });
-  });
-
-  track.addEventListener('scroll', paint, { passive: true });
-  paint();
-}());
-
-// Condensed header once the page scrolls (Figma node 1883:15347). The
-// threshold is offset from the switch-back point so the header cannot
-// oscillate when a scroll lands exactly on the boundary.
+// Condensed header once the page scrolls (same behavior as mattress.html).
 (function () {
   var sticky = document.querySelector('.mx-sticky');
   var ON = 24, OFF = 8;

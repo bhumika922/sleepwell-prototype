@@ -1271,9 +1271,13 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
 .tag-tip[hidden] { display: none; }
 
 /* Tag states versus a previous mattress ("Frame 2927" spec): default/common
-   is the existing .mx-tag look; these two are the other states. Not wired
-   to any real diff yet — no page has a "previous mattress" to compare
-   against — so nothing uses these classes yet. */
+   is the existing .mx-tag look; these two are the other states. First real
+   use is mattress-compare.html's comparison mode (Figma node 1777:11758). */
+.mx-tag--added,
+.mx-tag--removed {
+  gap: 2px;
+  padding-left: 7px;
+}
 .mx-tag--added {
   border-color: var(--dark);
 }
@@ -1282,6 +1286,72 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
   border-color: var(--cool-grey);
   color: var(--text-muted);
 }
+.mx-tag__icon { display: none; flex: none; width: 10px; height: 10px; }
+.mx-tag--added .mx-tag__icon,
+.mx-tag--removed .mx-tag__icon { display: block; }
+
+/* Comparison mode (Figma node 1777:11758): a mini card for the mattress this
+   page was reached from, with a VS badge straddling the seam between it and
+   the sticky header above. Scrolls with the page — only the header is
+   sticky. */
+.mxc-vs { position: relative; padding-top: 12px; }
+
+.mxc-vs__card {
+  background: var(--white);
+  border-radius: 0 0 12px 12px;
+  padding: 12px;
+}
+
+.mxc-vs__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.mxc-vs__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.mxc-vs__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.mxc-vs__softness,
+.mxc-vs__price {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+}
+
+.mxc-vs__badge {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+
+/* Price reads green only while the comparison (Info) is showing; leaving it
+   for Firmer/Similar/Softer drops back to the plain color, per spec. */
+.mx-facts__price--cmp { color: var(--green); }
 
 .mx-controls {
   margin: 0 12px;

@@ -128,6 +128,8 @@ lead-details.html         Lead details + recommended mattresses
 reference-mattresses.html Store favourites, buzzwords, area recommendations
 select-mattresses.html    Full catalogue banded by softness
 mattress.html             Mattress detail — layers, thickness, gallery, pillows
+mattress-compare.html     Comparison mode, opened from any Firmer/Similar/
+                          Softer recommendation card
 mockup.html               presentation shell: the screens in an iPhone frame
 styles.css                every screen; Figma styles are CSS custom properties
                           in :root, and each screen's rules are namespaced
@@ -392,3 +394,26 @@ orange → red → purple → light blue, matching the design.
   the design should make. They stay well under GitHub Pages' file-size
   limits, but they are the bulk of the page weight; downscale and
   re-export them (or convert to WebP) before this needs to load quickly.
+- **Every recommendation card, on Firmer/Similar/Softer, opens comparison
+  mode** (`mattress-compare.html`, Figma node 1777:11758) regardless of
+  which card was clicked — same "one real detail page" simplification as
+  everywhere else cards link out. It always shows Spinetech Air Luxury
+  against Spinetech Air, with the tags (`+MEM`/`SPN`/`RES`/`−ZPD`), green
+  softness indicator and green price all styled per that node's own
+  before/after spec ("Frame 2927" for the tag states). Selecting
+  Firmer/Similar/Softer *there* drops all three comparison cues — since
+  you're no longer looking at this mattress against the one you came
+  from — and switching back to Info restores them; Similar/Softer reuse the
+  exact same static bands as mattress.html itself, and Firmer still has no
+  design, so it just shows the plain mattress view.
+- **`assets/img/mattress-luxury/`'s four gallery photos are 1920×1440 to
+  3840×2804 exports (~28MB together)** — the same oversizing as the
+  original mattress gallery, and not addressed here for the same reason.
+  Its Related Pillows section reuses the four local pillow photos from
+  `assets/img/mattress/` rather than fetching four more near-duplicates —
+  the name, price and product are identical, just re-cropped in Figma.
+  Its Layer breakup is a static, non-interactive single card (the frame
+  shows one slide behind an `<a>` with no destination given, so it isn't
+  a link here), and neither the gallery nor the pillows open the zoom or
+  pillow-card overlays that mattress.html has — no such overlay was
+  specified for this screen.
