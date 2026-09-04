@@ -2744,6 +2744,27 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
 }
 .checkout-list__row:last-child { border-bottom: 0; }
 
+/* Yes state (Figma node 2288:13349): same row, but as a <button> with a
+   checkbox — justify-content:flex-start plus the name taking the slack
+   reproduces the space-between look now that the checkbox is a third
+   flex child. */
+.checkout-list__row--checkable {
+  justify-content: flex-start;
+  gap: 14px;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--grey-2);
+  border-radius: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.checkout-list__row--checkable:last-child { border-bottom: 0; }
+.checkout-list__row--checkable .checkout-list__name { flex: 1; }
+
+.checkout-list__check { flex: none; width: 14px; height: 14px; }
+
 /* Reuses .bd-actions/.bd-actions__back/.bd-actions__confirm — same fixed
    dark bar, back square and single wide action as the reference-mattresses
    screen, just as real <button>s here (Figma draws them the same way) so

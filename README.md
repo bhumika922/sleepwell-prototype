@@ -424,15 +424,21 @@ orange → red → purple → light blue, matching the design.
   exactly — it's the design's own duplicated data. Neither the gallery nor
   the pillows open the zoom or pillow-card overlays that mattress.html
   has — no such overlay was specified for this screen.
-- **Checkout (Figma node 2284:13169)** is reached from Close sale on either
-  mattress screen. Its **Finish** button is genuinely `disabled` until Full
-  Name has a value — the one piece of real validation this prototype
-  does — and enabled, it ends the flow at Welcome, same as every other
-  ending in this app. The mobile number field takes any input up to 10
-  characters with no format checking, the sold-products Yes/No pills flip
-  but do nothing else, and the recommended-mattress list is static
-  (Spinetech Air Luxury, Spinetech Air, Eminence, Esteem, all at the
-  design's own placeholder ₹49,302) regardless of what was actually
-  browsed. Its back button is the one place in this app that uses
-  `history.back()` instead of a static href, since two different screens
-  link here and there is no single real "previous" page to point to.
+- **Checkout (Figma node 2284:13169, "No"; 2288:13349, "Yes")** is reached
+  from Close sale on either mattress screen. Its **Finish** button is
+  genuinely `disabled` until Full Name has a value — the one piece of real
+  validation this prototype does — and enabled, it ends the flow at
+  Welcome, same as every other ending in this app. The mobile number field
+  takes any input up to 10 characters with no format checking. **Did you
+  sell any products?** actually switches the section below it, per both
+  nodes: No (the default) shows the plain "Mattresses Recommended" list;
+  Yes swaps it for "Select Mattresses Sold", the same four mattresses each
+  behind its own checkbox (Figma's own before/after states, node
+  1386:10228 — same asset the Demo checkbox on the mattress screens uses).
+  Checking a mattress off doesn't do anything else — Finish still gates
+  only on Full Name — and the list itself is static (Spinetech Air Luxury,
+  Spinetech Air, Eminence, Esteem, all at the design's own placeholder
+  ₹49,302) regardless of what was actually browsed or sold. Its back
+  button is the one place in this app that uses `history.back()` instead
+  of a static href, since two different screens link here and there is no
+  single real "previous" page to point to.

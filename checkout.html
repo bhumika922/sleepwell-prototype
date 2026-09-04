@@ -35,7 +35,8 @@
         </div>
       </section>
 
-      <section class="mx-sec">
+      <!-- No (Figma node 2284:13169): plain recommended list. -->
+      <section class="mx-sec" id="checkout-sec-recommended">
         <h2 class="mx-sec__eyebrow">Mattresses Recommended</h2>
         <div class="checkout-list">
           <div class="checkout-list__row">
@@ -57,6 +58,35 @@
         </div>
       </section>
 
+      <!-- Yes (Figma node 2288:13349): same list, but each mattress is
+           checked off as sold. Same checkbox states as the Demo button on
+           the mattress detail screens (Figma node 1386:10228). -->
+      <section class="mx-sec" id="checkout-sec-sold" hidden>
+        <h2 class="mx-sec__eyebrow">Select Mattresses Sold</h2>
+        <div class="checkout-list">
+          <button type="button" class="checkout-list__row checkout-list__row--checkable" aria-pressed="false">
+            <img class="checkout-list__check" src="assets/icons/checkbox.svg" alt="" />
+            <span class="checkout-list__name">Spinetech Air Luxury</span>
+            <span class="checkout-list__price">₹49,302</span>
+          </button>
+          <button type="button" class="checkout-list__row checkout-list__row--checkable" aria-pressed="false">
+            <img class="checkout-list__check" src="assets/icons/checkbox.svg" alt="" />
+            <span class="checkout-list__name">Spinetech Air</span>
+            <span class="checkout-list__price">₹49,302</span>
+          </button>
+          <button type="button" class="checkout-list__row checkout-list__row--checkable" aria-pressed="false">
+            <img class="checkout-list__check" src="assets/icons/checkbox.svg" alt="" />
+            <span class="checkout-list__name">Eminence</span>
+            <span class="checkout-list__price">₹49,302</span>
+          </button>
+          <button type="button" class="checkout-list__row checkout-list__row--checkable" aria-pressed="false">
+            <img class="checkout-list__check" src="assets/icons/checkbox.svg" alt="" />
+            <span class="checkout-list__name">Esteem</span>
+            <span class="checkout-list__price">₹49,302</span>
+          </button>
+        </div>
+      </section>
+
     </main>
 
     <!-- Bottom bar (Figma node 2284:13169). Finish starts disabled — enabled
@@ -71,10 +101,13 @@
   </div>
 
 <script>
-// The design ships a selected and an unselected state, so the pills pick —
-// same convention as the mattress-size pills on welcome.html.
+// No (Figma 2284:13169) shows the plain recommended list; Yes (2288:13349)
+// swaps it for the same list with a per-mattress sold checkbox instead.
 (function () {
   var group = document.querySelector('.checkout-toggle');
+  var recommended = document.getElementById('checkout-sec-recommended');
+  var sold = document.getElementById('checkout-sec-sold');
+
   group.addEventListener('click', function (e) {
     var picked = e.target.closest('.checkout-toggle__btn');
     if (!picked) return;
@@ -82,6 +115,23 @@
       var on = b === picked;
       b.classList.toggle('is-selected', on);
       b.setAttribute('aria-checked', String(on));
+    });
+
+    var isYes = picked.textContent.trim() === 'Yes';
+    recommended.hidden = isYes;
+    sold.hidden = !isYes;
+  });
+}());
+
+// Each sold mattress checks off independently, same checked/unchecked icon
+// swap as the Demo button (Figma node 1386:10228).
+(function () {
+  [].forEach.call(document.querySelectorAll('.checkout-list__row--checkable'), function (row) {
+    var icon = row.querySelector('.checkout-list__check');
+    row.addEventListener('click', function () {
+      var checked = row.getAttribute('aria-pressed') !== 'true';
+      row.setAttribute('aria-pressed', String(checked));
+      icon.src = checked ? 'assets/icons/checkbox-checked.svg' : 'assets/icons/checkbox.svg';
     });
   });
 }());
