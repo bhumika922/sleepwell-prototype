@@ -130,6 +130,9 @@ select-mattresses.html    Full catalogue banded by softness
 mattress.html             Mattress detail — layers, thickness, gallery, pillows
 mattress-compare.html     Comparison mode, opened from any Firmer/Similar/
                           Softer recommendation card
+checkout.html             Close sale — sold-products toggle, lead details,
+                          recommended mattresses; opened from either
+                          mattress detail screen's Close sale button
 mockup.html               presentation shell: the screens in an iPhone frame
 styles.css                every screen; Figma styles are CSS custom properties
                           in :root, and each screen's rules are namespaced
@@ -336,8 +339,8 @@ orange → red → purple → light blue, matching the design.
   share the tallest height (266 vs 254) so the page does not reflow when you
   swipe, which pushes the three sections below down 13px. The alternative —
   natural per-slide heights — matches the frame exactly at rest but jumps on
-  every swipe. Thickness variants, the gallery and the pillows are
-  static, and **Close sale** is inert.
+  every swipe. Thickness variants, the gallery and the pillows are static.
+  **Close sale** opens `checkout.html` (Figma node 2284:13169).
 - Select mattresses is a matrix that scrolls sideways past a softness rail
   pinned to the left edge, its four bands aligned to the four rows. Three
   cards (Mable, Eminence, Ultima) use the frame's unavailable styling — muted
@@ -421,3 +424,15 @@ orange → red → purple → light blue, matching the design.
   exactly — it's the design's own duplicated data. Neither the gallery nor
   the pillows open the zoom or pillow-card overlays that mattress.html
   has — no such overlay was specified for this screen.
+- **Checkout (Figma node 2284:13169)** is reached from Close sale on either
+  mattress screen. Its **Finish** button is genuinely `disabled` until Full
+  Name has a value — the one piece of real validation this prototype
+  does — and enabled, it ends the flow at Welcome, same as every other
+  ending in this app. The mobile number field takes any input up to 10
+  characters with no format checking, the sold-products Yes/No pills flip
+  but do nothing else, and the recommended-mattress list is static
+  (Spinetech Air Luxury, Spinetech Air, Eminence, Esteem, all at the
+  design's own placeholder ₹49,302) regardless of what was actually
+  browsed. Its back button is the one place in this app that uses
+  `history.back()` instead of a static href, since two different screens
+  link here and there is no single real "previous" page to point to.

@@ -2682,6 +2682,83 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
 }
 .crumbs__home img { width: 16px; height: 16px; object-fit: contain; }
 
+/* ==================================================================
+   Screen: Check out
+   Figma node 2284:13169. Reached from Close sale on the mattress detail
+   and comparison screens.
+================================================================== */
+
+.phone--checkout { padding-bottom: var(--bar-clear); }
+
+.checkout-toggle {
+  display: flex;
+  gap: 12px;
+}
+
+.checkout-toggle__btn {
+  flex: 1;
+  height: 48px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--dark);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+.checkout-toggle__btn.is-selected {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.checkout-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkout-field {
+  width: 100%;
+  height: 45px;
+  padding: 0 4px 0 14px;
+  background: var(--white);
+  border: 1px solid var(--cool-grey);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--dark);
+}
+.checkout-field::placeholder { color: var(--blue); opacity: 1; }
+
+.checkout-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--grey-2);
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+.checkout-list__row:last-child { border-bottom: 0; }
+
+/* Reuses .bd-actions/.bd-actions__back/.bd-actions__confirm — same fixed
+   dark bar, back square and single wide action as the reference-mattresses
+   screen, just as real <button>s here (Figma draws them the same way) so
+   Finish can take a native disabled state. */
+.bd-actions__back,
+.bd-actions__confirm {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.bd-actions__confirm:disabled {
+  background: var(--disabled);
+  cursor: not-allowed;
+}
+
 /* --- desktop: sit the frame on a neutral field ------------------- */
 
 @media (min-width: 481px) {
