@@ -92,6 +92,23 @@ the server has to be started from a shell that does have access. Granting the
 app Documents access, or moving the project outside `~/Documents`, would lift
 that restriction.
 
+## Hosting on GitHub Pages
+
+The whole app is static — every path is relative, nothing calls back to
+`server.py` — so it needs no build step and no server-side code to host.
+
+1. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy
+   from a branch**, then pick `main` and `/ (root)`.
+2. The site publishes at `https://bhumika922.github.io/sleepwell-prototype/`.
+   That's a subpath, not the domain root, which is exactly why every href,
+   src and CSS `url()` in this repo is relative rather than rooted at `/` —
+   a rooted path would 404 under a project-pages subpath.
+3. `.nojekyll` is committed at the repo root so GitHub serves the files as-is
+   instead of running them through Jekyll first.
+
+`server.py` and the `.claude/` preview config remain for local development
+only — Pages ignores both and serves the HTML/CSS/JS/assets directly.
+
 ## Files
 
 ```
@@ -117,7 +134,10 @@ assets/js/               breadcrumbs overlay, shared by every screen with a
 assets/icons/            UI icons exported from Figma as SVG
 assets/img/              artwork and brand imagery exported as PNG/SVG
 assets/fonts/            Intelo webfonts, all 16 styles (see its README)
-.claude/                 static file server + preview launch config
+server.py                static file server for local dev (see Run, above)
+.claude/                 preview launch config for local dev tooling
+.nojekyll                tells GitHub Pages to skip Jekyll processing
+.gitignore               OS/editor/Python cruft (.DS_Store, __pycache__, …)
 ```
 
 ## Presentation mockup
@@ -344,3 +364,11 @@ orange → red → purple → light blue, matching the design.
 - The two picker frames disagree by ~2px on the count row and rule (163/190 vs
   165/192). Treated as design drift: both screens use the bed-displays values
   so one shared component renders them.
+- **The four gallery photos in `assets/img/mattress/` are 1920–3840px wide
+  raster exports (3.3–17MB each, ~30MB together)** for a 360px-wide mobile
+  frame with pinch-to-zoom. Not resized here — no image tool beyond macOS
+  `sips` was available, which cannot recompress PNGs without a visible
+  quality hit, and picking a target resolution for the zoomed view is a call
+  the design should make. They stay well under GitHub Pages' file-size
+  limits, but they are the bulk of the page weight; downscale and
+  re-export them (or convert to WebP) before this needs to load quickly.
