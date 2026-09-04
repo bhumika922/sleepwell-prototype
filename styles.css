@@ -1270,6 +1270,19 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
 }
 .tag-tip[hidden] { display: none; }
 
+/* Tag states versus a previous mattress ("Frame 2927" spec): default/common
+   is the existing .mx-tag look; these two are the other states. Not wired
+   to any real diff yet — no page has a "previous mattress" to compare
+   against — so nothing uses these classes yet. */
+.mx-tag--added {
+  border-color: var(--dark);
+}
+.mx-tag--removed {
+  background: var(--grey-1);
+  border-color: var(--cool-grey);
+  color: var(--text-muted);
+}
+
 .mx-controls {
   margin: 0 12px;
   height: 48px;
