@@ -477,12 +477,16 @@
 
 // The comfort row: Info is the comparison view this page opens on — tags
 // carry their added/removed state, the softness indicator shows, and the
-// price reads green. Similar (Figma 1883:15070) and Softer (1784:13399)
-// reuse the same static upsell/downsell bands as mattress.html; Firmer has
-// no design, so it just shows the plain mattress view. Leaving Info for any
-// of the three drops the comparison entirely — tags go plain, the indicator
-// hides, the price reverts to navy — since you're no longer looking at this
-// mattress specifically against the one you came from.
+// price reads green, and the VS card names the mattress this page was
+// reached from. Similar (Figma 1883:15070) and Softer (1784:13399) reuse
+// the same static upsell/downsell bands as mattress.html; Firmer has no
+// design, so it just shows the plain mattress view.
+//
+// Leaving Info for any of the three exits comparison mode for good: the VS
+// card disappears and the tag/indicator/price comparison cues drop, and
+// clicking back to Info later shows this mattress's own plain page rather
+// than re-entering the comparison — you dismissed it, not just navigated
+// away from it.
 (function () {
   var segs = [].slice.call(document.querySelectorAll('.mx-controls__seg'));
   var main = document.getElementById('mxc-main');
@@ -493,6 +497,8 @@
   var softnessIndicator = document.getElementById('mxc-softness-indicator');
   var price = document.getElementById('mxc-price');
   var tags = document.getElementById('mxc-tags');
+  var vs = document.getElementById('mxc-vs');
+  var comparing = true;
 
   function activeName() {
     return document.querySelector('.mx-controls__seg--info').textContent.trim();
@@ -500,9 +506,9 @@
 
   function render() {
     var name = activeName();
-    var isInfo = name === 'Info';
     var isSimilar = name === 'Similar';
     var isSofter = name === 'Softer';
+    var showCmp = name === 'Info' && comparing;
 
     main.hidden = isSimilar || isSofter;
     recsSimilar.hidden = !isSimilar;
@@ -512,16 +518,18 @@
     actionsDefault.hidden = showToggles;
     actionsToggles.hidden = !showToggles;
 
-    softnessIndicator.hidden = !isInfo;
-    price.classList.toggle('mx-facts__price--cmp', isInfo);
+    vs.hidden = !comparing;
+    softnessIndicator.hidden = !showCmp;
+    price.classList.toggle('mx-facts__price--cmp', showCmp);
     tags.querySelectorAll('.mx-tag[data-cmp]').forEach(function (t) {
-      t.classList.toggle('mx-tag--' + t.dataset.cmp, isInfo);
+      t.classList.toggle('mx-tag--' + t.dataset.cmp, showCmp);
     });
   }
 
   segs.forEach(function (seg) {
     seg.addEventListener('click', function () {
       segs.forEach(function (s) { s.classList.toggle('mx-controls__seg--info', s === seg); });
+      if (seg.textContent.trim() !== 'Info') comparing = false;
       render();
     });
   });
