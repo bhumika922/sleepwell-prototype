@@ -401,19 +401,23 @@ orange → red → purple → light blue, matching the design.
   against Spinetech Air, with the tags (`+MEM`/`SPN`/`RES`/`−ZPD`), green
   softness indicator and green price all styled per that node's own
   before/after spec ("Frame 2927" for the tag states). Selecting
-  Firmer/Similar/Softer *there* drops all three comparison cues — since
-  you're no longer looking at this mattress against the one you came
-  from — and switching back to Info restores them; Similar/Softer reuse the
-  exact same static bands as mattress.html itself, and Firmer still has no
-  design, so it just shows the plain mattress view.
+  Firmer/Similar/Softer *there* exits comparison mode for good — the VS
+  card and all three comparison cues disappear, and clicking back to Info
+  afterward shows this mattress's own plain page rather than re-entering
+  the comparison, since you dismissed it rather than just navigated away.
+  Similar/Softer there reuse the exact same static bands as mattress.html
+  itself; Firmer still has no design, so it just shows the plain mattress
+  view underneath, comparison cues or not.
 - **`assets/img/mattress-luxury/`'s four gallery photos are 1920×1440 to
   3840×2804 exports (~28MB together)** — the same oversizing as the
   original mattress gallery, and not addressed here for the same reason.
   Its Related Pillows section reuses the four local pillow photos from
   `assets/img/mattress/` rather than fetching four more near-duplicates —
-  the name, price and product are identical, just re-cropped in Figma.
-  Its Layer breakup is a static, non-interactive single card (the frame
-  shows one slide behind an `<a>` with no destination given, so it isn't
-  a link here), and neither the gallery nor the pillows open the zoom or
-  pillow-card overlays that mattress.html has — no such overlay was
-  specified for this screen.
+  the name, price and product are identical, just re-cropped in Figma. Its
+  Layer breakup reuses mattress.html's own three-slide carousel verbatim
+  (Comfort/Support layer text included) even though the Figma frame for
+  this page only shows the Top Layers slide, for the same reason Thickness
+  Variants and the recommendation bands already match mattress.html
+  exactly — it's the design's own duplicated data. Neither the gallery nor
+  the pillows open the zoom or pillow-card overlays that mattress.html
+  has — no such overlay was specified for this screen.

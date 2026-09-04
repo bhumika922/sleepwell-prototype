@@ -87,12 +87,15 @@
 
     <main class="mx" id="mxc-main">
 
-      <!-- Layer breakup: a compact static preview here rather than the
-           interactive carousel on mattress.html — the Figma frame shows one
-           slide with a flat pagination graphic and no scroll/tab behavior,
-           and no destination is specified for it, so it's non-interactive. -->
+      <!-- Layer breakup: same 3-slide interactive carousel as mattress.html.
+           The Figma frame for this page only shows the Top Layers slide, but
+           Comfort/Support reuse mattress.html's own content verbatim — same
+           pattern as this page's Thickness Variants, Related Pillows and
+           Similar/Softer bands, which are all identical to the original. -->
       <section class="mx-sec">
         <h2 class="mx-sec__eyebrow">Layer breakup</h2>
+
+        <div class="mx-carousel" id="mxc-layer-carousel">
         <div class="mx-layers">
           <div class="mx-layers__strip" aria-hidden="true">
             <img src="assets/img/mattress/layers.png" alt="" />
@@ -130,10 +133,72 @@
             </ul>
           </div>
         </div>
-        <div class="mx-dots" aria-hidden="true">
-          <span class="mx-dots__dot is-on"></span>
-          <span class="mx-dots__dot"></span>
-          <span class="mx-dots__dot"></span>
+        <div class="mx-layers">
+          <div class="mx-layers__strip mx-layers__strip--alt" aria-hidden="true">
+            <img src="assets/img/mattress/layers-2.png" alt="" />
+            <span class="mx-pin" style="top: 12px">1</span>
+            <span class="mx-pin" style="top: 50px">2</span>
+            <span class="mx-pin" style="top: 78px">3</span>
+            <span class="mx-pin" style="top: 111px">4</span>
+            <span class="mx-pin" style="top: 151px">5</span>
+            <span class="mx-pin" style="top: 185px">6</span>
+          </div>
+          <div class="mx-layers__info">
+            <h3 class="mx-layers__title">Comfort Layers</h3>
+            <ul class="mx-layers__list">
+              <li class="mx-layer">
+                <span class="mx-pin mx-pin--static">3</span>
+                <span class="mx-layer__text">
+                  <span class="mx-layer__name">Impressions Foam</span>
+                  <span class="mx-layer__desc">Contour hugging, even pressure distribution and enhanced blood circulation</span>
+                </span>
+              </li>
+              <li class="mx-layer">
+                <span class="mx-pin mx-pin--static">4</span>
+                <span class="mx-layer__text">
+                  <span class="mx-layer__name">Resitec Foam</span>
+                  <span class="mx-layer__desc">Responsive, medium firm, breathable, all weather, pressure distribution</span>
+                </span>
+              </li>
+              <li class="mx-layer">
+                <span class="mx-pin mx-pin--static">5</span>
+                <span class="mx-layer__text">
+                  <span class="mx-layer__name">Reticool Foam</span>
+                  <span class="mx-layer__desc">Gentle feel with enhanced airflow</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mx-layers">
+          <div class="mx-layers__strip mx-layers__strip--alt" aria-hidden="true">
+            <img src="assets/img/mattress/layers-2.png" alt="" />
+            <span class="mx-pin" style="top: 12px">1</span>
+            <span class="mx-pin" style="top: 50px">2</span>
+            <span class="mx-pin" style="top: 78px">3</span>
+            <span class="mx-pin" style="top: 111px">4</span>
+            <span class="mx-pin" style="top: 151px">5</span>
+            <span class="mx-pin" style="top: 185px">6</span>
+          </div>
+          <div class="mx-layers__info">
+            <h3 class="mx-layers__title">Support Layers</h3>
+            <ul class="mx-layers__list">
+              <li class="mx-layer">
+                <span class="mx-pin mx-pin--static">6</span>
+                <span class="mx-layer__text">
+                  <span class="mx-layer__name">Rebonded Foam</span>
+                  <span class="mx-layer__desc">High firmness, zero environmental wastage</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+
+        <div class="mx-dots" id="mxc-layer-dots" role="tablist" aria-label="Layer groups">
+          <button class="mx-dots__dot is-on" type="button" role="tab" aria-selected="true" aria-label="Top layers"></button>
+          <button class="mx-dots__dot" type="button" role="tab" aria-selected="false" aria-label="Comfort layers"></button>
+          <button class="mx-dots__dot" type="button" role="tab" aria-selected="false" aria-label="Support layers"></button>
         </div>
       </section>
 
@@ -546,6 +611,35 @@
   });
 
   render();
+}());
+
+// Layer breakup carousel: three slides sharing one pagination row, same
+// behavior as mattress.html.
+(function () {
+  var track = document.getElementById('mxc-layer-carousel');
+  var dots = [].slice.call(document.getElementById('mxc-layer-dots').children);
+  var GAP = 12; // must match .mx-carousel's gap
+
+  function pitch() { return track.clientWidth + GAP; }
+  function current() {
+    return Math.round(track.scrollLeft / pitch());
+  }
+  function paint() {
+    var i = current();
+    dots.forEach(function (d, n) {
+      d.classList.toggle('is-on', n === i);
+      d.setAttribute('aria-selected', String(n === i));
+    });
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      track.scrollTo({ left: i * pitch(), behavior: 'smooth' });
+    });
+  });
+
+  track.addEventListener('scroll', paint, { passive: true });
+  paint();
 }());
 
 // Condensed header once the page scrolls (same behavior as mattress.html).
