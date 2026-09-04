@@ -97,14 +97,18 @@ that restriction.
 The whole app is static — every path is relative, nothing calls back to
 `server.py` — so it needs no build step and no server-side code to host.
 
-1. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy
-   from a branch**, then pick `main` and `/ (root)`.
-2. The site publishes at `https://bhumika922.github.io/sleepwell-prototype/`.
-   That's a subpath, not the domain root, which is exactly why every href,
-   src and CSS `url()` in this repo is relative rather than rooted at `/` —
-   a rooted path would 404 under a project-pages subpath.
-3. `.nojekyll` is committed at the repo root so GitHub serves the files as-is
-   instead of running them through Jekyll first.
+Pages is set up via **Settings → Pages → Build and deployment → Source:
+GitHub Actions**, which committed `.github/workflows/static.yml` (GitHub's
+own starter workflow): every push to `main` uploads the whole repo as-is
+and deploys it, no build step. The site publishes at
+`https://bhumika922.github.io/sleepwell-prototype/` — a subpath, not the
+domain root, which is exactly why every href, src and CSS `url()` in this
+repo is relative rather than rooted at `/`; a rooted path would 404 there.
+
+`.nojekyll` is committed at the repo root too. The Actions workflow doesn't
+run Jekyll in the first place, so it's a no-op under this setup — it only
+matters if Pages is ever switched to the older "deploy from a branch"
+source, where it stops GitHub from running the files through Jekyll first.
 
 `server.py` and the `.claude/` preview config remain for local development
 only — Pages ignores both and serves the HTML/CSS/JS/assets directly.
@@ -136,7 +140,8 @@ assets/img/              artwork and brand imagery exported as PNG/SVG
 assets/fonts/            Intelo webfonts, all 16 styles (see its README)
 server.py                static file server for local dev (see Run, above)
 .claude/                 preview launch config for local dev tooling
-.nojekyll                tells GitHub Pages to skip Jekyll processing
+.github/workflows/      GitHub's starter workflow, deploys main to Pages
+.nojekyll                belt-and-suspenders — see Hosting on GitHub Pages
 .gitignore               OS/editor/Python cruft (.DS_Store, __pycache__, …)
 ```
 
