@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <main class="mx">
+    <main class="mx" id="mx-main">
 
       <!-- Layer breakup -->
       <section class="mx-sec">
@@ -221,8 +221,113 @@
 
     </main>
 
+    <!-- Comfort comparison (Softer), Figma node 1784:13399 -->
+    <div class="mx-recs" id="mx-recs" hidden>
+
+      <div class="mx-recs__band mx-recs__band--up">
+        <h2 class="mx-recs__eyebrow mx-recs__eyebrow--up">Softer upsell</h2>
+        <div class="mx-recs__row">
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Esteem</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹35,769</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">CCT 1.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹44,693</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <a class="mattress rec-card" href="mattress.html">
+            <span class="rec-card__head">
+              <span class="mattress__name">Spinetech Air Luxury</span>
+              <span class="rec-card__flag"><span class="rec-card__badge" title="Bestseller"><img src="assets/icons/bestseller-star.svg" alt="Bestseller" /></span></span>
+            </span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹38,978</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </a>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Eminence</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹44,712</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Revital 4.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹35,769</span>
+              <span class="mattress__softness">Medium Soft</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-recs__band mx-recs__band--down">
+        <h2 class="mx-recs__eyebrow mx-recs__eyebrow--down">Softer downsell</h2>
+        <div class="mx-recs__row">
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Spinetech</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹24,456</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <div class="mattress rec-card sel-mx--out">
+            <span class="rec-card__head"><span class="mattress__name">Dignity</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹22,097</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Revital 2.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹15,705</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">GenX 1.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹16,165</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Mable</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹21,554</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!-- Bottom bar -->
-    <div class="mx-actions">
+    <div class="mx-actions" id="mx-actions-default">
       <a class="mx-actions__back" href="reference-mattresses.html" aria-label="Back to reference mattresses">
         <img src="assets/icons/nav-back-32.svg" alt="" />
       </a>
@@ -232,6 +337,23 @@
           Demo
         </button>
         <a class="mx-actions__close" href="#">Close sale</a>
+      </div>
+    </div>
+
+    <!-- Bottom bar: comfort comparison variant (Softer) -->
+    <div class="mx-actions mx-actions--softer" id="mx-actions-softer" hidden>
+      <a class="mx-actions__back" href="reference-mattresses.html" aria-label="Back to reference mattresses">
+        <img src="assets/icons/nav-back-32.svg" alt="" />
+      </a>
+      <div class="mx-toggles">
+        <span class="mx-toggle">
+          <span class="mx-toggle__label">Hide<br />spring</span>
+          <button class="toggle" type="button" role="switch" aria-checked="true" aria-label="Hide spring mattresses"></button>
+        </span>
+        <span class="mx-toggle">
+          <span class="mx-toggle__label">Hide<br />coir</span>
+          <button class="toggle" type="button" role="switch" aria-checked="false" aria-label="Hide coir mattresses"></button>
+        </span>
       </div>
     </div>
 
@@ -288,12 +410,27 @@
   </div>
 
 <script>
-// The comfort row and the Demo checkbox each ship two states in the frame.
+// The comfort row picks which segment is highlighted, and — for "Softer",
+// the only comparison with a design (Figma node 1784:13399) — swaps the
+// mattress's own sections for the upsell/downsell bands and swaps the
+// bottom bar for the Hide spring/coir toggles. Firmer/Similar have no
+// design yet, so they just restore the mattress view, same as Info.
 (function () {
   var segs = [].slice.call(document.querySelectorAll('.mx-controls__seg'));
+  var main = document.getElementById('mx-main');
+  var recs = document.getElementById('mx-recs');
+  var actionsDefault = document.getElementById('mx-actions-default');
+  var actionsSofter = document.getElementById('mx-actions-softer');
+
   segs.forEach(function (seg) {
     seg.addEventListener('click', function () {
       segs.forEach(function (s) { s.classList.toggle('mx-controls__seg--info', s === seg); });
+
+      var softer = seg.textContent.trim() === 'Softer';
+      main.hidden = softer;
+      recs.hidden = !softer;
+      actionsDefault.hidden = softer;
+      actionsSofter.hidden = !softer;
     });
   });
 
@@ -301,9 +438,18 @@
   demo.addEventListener('click', function () {
     demo.setAttribute('aria-pressed', String(demo.getAttribute('aria-pressed') !== 'true'));
   });
+
+  [].forEach.call(document.querySelectorAll('.toggle'), function (t) {
+    t.addEventListener('click', function () {
+      t.setAttribute('aria-checked', String(t.getAttribute('aria-checked') !== 'true'));
+    });
+  });
 }());
 
-// Full-size gallery with pinch-to-zoom (Figma node 1883:15068).
+// Full-size gallery with pinch-to-zoom and swipe-between-images (Figma
+// node 1883:15068). touch-action is off on the stage, so a plain scroll
+// container isn't an option — swiping is another pointer gesture here,
+// alongside pinch and pan-when-zoomed.
 (function () {
   var overlay = document.getElementById('zoom');
   var stage = document.getElementById('zoom-stage');
@@ -311,11 +457,12 @@
   var dots = [].slice.call(document.getElementById('zoom-dots').children);
   var index = 0, scale = 1, tx = 0, ty = 0;
   var pointers = new Map(), startDist = 0, startScale = 1, panFrom = null;
+  var swiping = false, swipeFrom = 0, swipeDX = 0;
 
   function img() { return track.children[index]; }
 
   function paint() {
-    track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    track.style.transform = 'translateX(calc(' + (-index * 100) + '% + ' + swipeDX + 'px))';
     img().style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
     dots.forEach(function (d, i) { d.classList.toggle('is-on', i === index); });
   }
@@ -351,10 +498,23 @@
   }
 
   stage.addEventListener('pointerdown', function (e) {
+    // the stage owns this gesture end to end — without preventDefault, a
+    // mouse drag starting on the <img> triggers the browser's native
+    // "drag this image out" instead, which steals the pointer mid-gesture
+    e.preventDefault();
     stage.setPointerCapture(e.pointerId);
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (pointers.size === 2) { startDist = dist(); startScale = scale; }
-    else if (scale > 1) panFrom = { x: e.clientX - tx, y: e.clientY - ty };
+    if (pointers.size === 2) {
+      swiping = false;
+      startDist = dist(); startScale = scale;
+    } else if (scale > 1) {
+      panFrom = { x: e.clientX - tx, y: e.clientY - ty };
+    } else {
+      // at rest (not zoomed in), one finger swipes between images
+      swiping = true;
+      swipeFrom = e.clientX;
+      track.style.transition = 'none';
+    }
   });
 
   stage.addEventListener('pointermove', function (e) {
@@ -369,6 +529,13 @@
       tx = e.clientX - panFrom.x;
       ty = e.clientY - panFrom.y;
       paint();
+    } else if (swiping) {
+      var dx = e.clientX - swipeFrom;
+      var atStart = index === 0, atEnd = index === track.children.length - 1;
+      // rubber-band past the first/last image instead of sliding into nothing
+      if ((atStart && dx > 0) || (atEnd && dx < 0)) dx *= 0.35;
+      swipeDX = dx;
+      paint();
     }
   });
 
@@ -376,6 +543,16 @@
     pointers.delete(e.pointerId);
     if (pointers.size < 2) startDist = 0;
     if (!pointers.size) panFrom = null;
+
+    if (swiping && !pointers.size) {
+      swiping = false;
+      track.style.transition = '';
+      var threshold = stage.clientWidth * 0.2;
+      if (swipeDX <= -threshold && index < track.children.length - 1) index += 1;
+      else if (swipeDX >= threshold && index > 0) index -= 1;
+      swipeDX = 0;
+      paint();
+    }
   }
   stage.addEventListener('pointerup', lift);
   stage.addEventListener('pointercancel', lift);
