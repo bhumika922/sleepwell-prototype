@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F5F5F5" />
+<title>Select bed displays · Sleepwell</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="phone phone--beds">
+
+    <!-- Header + filter bar: pinned; only the list below scrolls -->
+    <div class="bd-sticky">
+
+    <header class="setup-header">
+      <img class="setup-header__bg" src="assets/img/header-bg.png" alt="" />
+      <a class="setup-header__brand" href="index.html" aria-label="Back to Personal Corner">
+        <img src="assets/img/sleepwell-logo.png" alt="Sleepwell" />
+      </a>
+    </header>
+
+    <!-- Title, search, count + sort -->
+    <div class="bd-top">
+      <h1 class="bd-eyebrow">Select bed displays</h1>
+
+      <label class="bd-search">
+        <img class="bd-search__icon" src="assets/icons/search-14.svg" alt="" />
+        <input class="bd-search__input" type="search" placeholder="Search" aria-label="Search mattresses" />
+      </label>
+
+      <div class="bd-meta">
+        <p class="bd-meta__count">Selected <span id="selected-count">0</span> out of 42</p>
+        <div class="bd-sort-wrap">
+          <button class="bd-sort" type="button" id="sort-trigger"
+                  aria-haspopup="true" aria-expanded="false" aria-controls="sort-menu">
+            <img src="assets/icons/sort.svg" alt="" />
+            <span id="sort-label">Price: Hi-Low</span>
+          </button>
+
+          <div class="bd-sortmenu" id="sort-menu" role="menu" aria-labelledby="sort-trigger" hidden>
+            <button class="bd-sortmenu__item" type="button" role="menuitemradio"
+                    aria-checked="false" data-sort="bestsellers">Bestsellers</button>
+            <button class="bd-sortmenu__item" type="button" role="menuitemradio"
+                    aria-checked="false" data-sort="low">Price: lowest first</button>
+            <button class="bd-sortmenu__item" type="button" role="menuitemradio"
+                    aria-checked="true" data-sort="high">Price: highest first</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /.bd-sticky -->
+
+    <!-- Mattress grid -->
+    <main class="bd-grid" id="grid">
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Nexa</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹95,781</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Naturalle 1.0</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹69,549</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Impressions</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹35,769</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Latex Plus</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹49,302</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Eminence</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹44,712</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">CCT 1.0</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹44,693</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Revital 4.0</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹35,769</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Esteem</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹30,027</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Diginity</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹22,097</span>
+          <span class="mattress__softness">Medium Firm</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Revital 2.0</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹15,705</span>
+          <span class="mattress__softness">Medium Firm</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Spinetech</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹24,456</span>
+          <span class="mattress__softness">Medium Firm</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Spinetech Air</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹28,072</span>
+          <span class="mattress__softness">Medium Firm</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Spinetech Air Luxury</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹38,978</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">Durafirm Plus</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹19,297</span>
+          <span class="mattress__softness">Firm</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">GenX 1.0</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹12,547</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+      <button class="mattress" type="button" aria-pressed="false">
+        <span class="mattress__name">GenX 2.0</span>
+        <span class="mattress__meta">
+          <span class="mattress__price">₹16,165</span>
+          <span class="mattress__softness">Medium Soft</span>
+        </span>
+      </button>
+
+    </main>
+
+    <!-- Bottom bar -->
+    <div class="bd-actions">
+      <a class="bd-actions__back" href="digital-sales-tool.html" aria-label="Back to store setup">
+        <img src="assets/icons/nav-back-32.svg" alt="" />
+      </a>
+      <a class="bd-actions__confirm" href="store-setup-complete.html">Confirm</a>
+    </div>
+
+  </div>
+
+<script>
+// The design ships two card states and a live count, so the cards toggle.
+// 42 is the catalogue size from the design; this frame only lists 16 of them,
+// so swap it for the real total once this is wired to data.
+(function () {
+  var grid = document.getElementById('grid');
+  var out = document.getElementById('selected-count');
+
+  grid.addEventListener('click', function (e) {
+    var card = e.target.closest('.mattress');
+    if (!card) return;
+    var next = card.getAttribute('aria-pressed') !== 'true';
+    card.setAttribute('aria-pressed', String(next));
+    card.classList.toggle('is-selected', next);
+    out.textContent = grid.querySelectorAll('[aria-pressed="true"]').length;
+  });
+}());
+
+// Sort menu (Figma node 2272:13193). Opening, choosing and reordering are
+// behaviour rather than layout — the design is the panel alone.
+(function () {
+  var trigger = document.getElementById('sort-trigger');
+  var menu = document.getElementById('sort-menu');
+  var label = document.getElementById('sort-label');
+  var grid = document.getElementById('grid');
+  var items = [].slice.call(menu.querySelectorAll('.bd-sortmenu__item'));
+
+  var LABELS = {
+    bestsellers: 'Bestsellers',
+    low: 'Price: Low-Hi',
+    high: 'Price: Hi-Low'
+  };
+
+  // "Bestsellers" has no field to sort on, so it restores the authored order.
+  var cards = [].slice.call(grid.children);
+  cards.forEach(function (c, i) { c.dataset.rank = i; });
+
+  function priceOf(card) {
+    return Number(card.querySelector('.mattress__price').textContent.replace(/[^0-9]/g, ''));
+  }
+
+  function open(state) {
+    menu.hidden = !state;
+    trigger.setAttribute('aria-expanded', String(state));
+  }
+
+  function sortBy(key) {
+    var sorted = cards.slice().sort(function (a, b) {
+      if (key === 'low') return priceOf(a) - priceOf(b);
+      if (key === 'high') return priceOf(b) - priceOf(a);
+      return a.dataset.rank - b.dataset.rank;
+    });
+    sorted.forEach(function (c) { grid.appendChild(c); });
+  }
+
+  trigger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    open(menu.hidden);
+  });
+
+  items.forEach(function (item) {
+    item.addEventListener('click', function () {
+      items.forEach(function (i) { i.setAttribute('aria-checked', String(i === item)); });
+      label.textContent = LABELS[item.dataset.sort];
+      sortBy(item.dataset.sort);
+      open(false);
+      trigger.focus();
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!menu.hidden && !menu.contains(e.target)) open(false);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.hidden) { open(false); trigger.focus(); }
+  });
+}());
+</script>
+<script src="assets/js/breadcrumbs.js"></script>
+</body>
+</html>

@@ -1,0 +1,2441 @@
+/* ------------------------------------------------------------------
+   Sleepwell Virtual Salesman — Personal Corner
+   Figma: ccT41qrQ7vVlmUPAgBr2Od  node 7005:4811
+   Mobile-first; base frame 360 x 668.
+------------------------------------------------------------------ */
+
+/* --- brand typeface ----------------------------------------------
+   Intelo (Fontfabric), the Sleepwell brand face. All 16 styles are
+   declared under one family so `font-weight: 600` / `font-style: italic`
+   resolve normally — the supplied kit ships them as separate families
+   ("Intelo Semi", "Intelo Extra") because the Font Squirrel conversion
+   flattened every OS/2 usWeightClass to 400.
+
+   Declaring all 16 is free at runtime: a browser only downloads a face
+   when a rule actually renders text in it. This screen pulls 400 and 700.
+
+   Ramp: 100 Hairline · 200 Thin · 300 Light · 400 Regular
+         500 Medium · 600 SemiBold · 700 Bold · 800 ExtraBold
+------------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Hairline.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Hairline.woff")  format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-HairlineItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-HairlineItalic.woff")  format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Thin.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Thin.woff")  format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-ThinItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-ThinItalic.woff")  format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Light.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Light.woff")  format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-LightItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-LightItalic.woff")  format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Regular.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Regular.woff")  format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Italic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Italic.woff")  format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Medium.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Medium.woff")  format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-MediumItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-MediumItalic.woff")  format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-SemiBold.woff2") format("woff2"),
+       url("assets/fonts/Intelo-SemiBold.woff")  format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-SemiBoldItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-SemiBoldItalic.woff")  format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-Bold.woff2") format("woff2"),
+       url("assets/fonts/Intelo-Bold.woff")  format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-BoldItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-BoldItalic.woff")  format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-ExtraBold.woff2") format("woff2"),
+       url("assets/fonts/Intelo-ExtraBold.woff")  format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intelo";
+  src: url("assets/fonts/Intelo-ExtraBoldItalic.woff2") format("woff2"),
+       url("assets/fonts/Intelo-ExtraBoldItalic.woff")  format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Figma styles */
+  --dark:        #062B4E;
+  --white:       #FFFFFF;
+  --yellow:      #FAB90E;
+  --orange:      #FF6600;
+  --red:         #DA281C;
+  --purple:      #8C4699;
+  --blue-light:  #89AEDE;
+  --blue:        #407DC9;
+  --bg:          #ECF5FD;
+  --grey-1:      #F5F5F5;
+  --disabled:    #BDBDBD;   /* Primary button, inactive */
+  --cool-grey:   #C1D1E0;   /* hairline rules, input borders */
+  --card-bg:     #DCECFA;   /* unselected size pill */
+  --grey-3:      #828282;   /* muted measurements + field labels */
+  --text-muted:  #607D97;   /* lead phone numbers + timestamps */
+  --green:       #27C637;   /* "Sold" status */
+  --grey-2:      #E5E5E5;   /* tag borders */
+
+  /* Real device insets. Overridable so the mockup frame in mockup.html can
+     simulate a Dynamic Island / home indicator, which env() can't do in an
+     iframe. Never set these by hand in the app itself. */
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Clearance for the fixed bottom bar: its height, the home-indicator inset,
+     and 16px so the last card isn't flush against the bar. */
+  --bar-clear:   calc(56px + 16px + var(--safe-bottom));
+
+  --gutter:      14px;   /* (360 - 332) / 2 */
+  --col-gap:     10px;
+  --row-gap:     12px;
+  --tile-h:      105px;
+  --bar-h:       56px;
+
+  /* Platform UI stack only covers the swap window / a failed font load. */
+  --font: "Intelo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Any author `display` beats the UA sheet's [hidden] rule, so an element with
+   display:flex stays visible after setting .hidden. Make the attribute win. */
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--grey-1);
+  font-family: var(--font);
+  color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transparent; }
+
+/* --- phone frame ------------------------------------------------- */
+
+.phone {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--grey-1);
+  padding-bottom: calc(var(--bar-h) + var(--safe-bottom));
+}
+
+/* --- header ------------------------------------------------------ */
+
+.header {
+  background: var(--white);
+  padding: calc(20px + var(--safe-top)) var(--gutter) 6px;
+  overflow: hidden;
+}
+
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.greeting-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.greeting { min-width: 0; }
+
+.greeting p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.greeting__hello { font-size: 12px; line-height: 14px; font-weight: 400; }
+.greeting__name  { font-size: 14px; line-height: 17px; font-weight: 700; }
+.greeting__role  { font-size: 10px; line-height: 12px; font-weight: 400; }
+
+.avatar {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.avatar img {
+  position: absolute;
+  width: 129.36%;
+  height: 110.43%;
+  left: -17.13%;
+  top: -3.99%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.titlebar__left {
+  flex: none;
+  width: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titlebar__right {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.titlebar__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.icon-btn--22 { width: 32px; height: 32px; }
+.icon-btn--22 img { width: 22px; height: 22px; }
+.icon-btn--24 { width: 24px; height: 24px; }
+.icon-btn--24 img { width: 20px; height: 20px; }
+
+/* The Figma SVGs export with preserveAspectRatio="none", so any box they
+   don't exactly fill distorts them rather than letterboxing. Pin every icon
+   against flex shrink and make the aspect ratio non-negotiable. */
+.icon-btn img,
+.nav-btn img {
+  flex: none;
+  object-fit: contain;
+}
+
+.brand {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.brand img {
+  position: absolute;
+  width: 398.14%;
+  height: 93.93%;
+  left: 6.5%;
+  top: 3.46%;
+  max-width: none;
+}
+
+/* --- tile grid --------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: var(--col-gap);
+  row-gap: var(--row-gap);
+  padding: 18px var(--gutter) 20px;
+}
+
+.tile {
+  position: relative;
+  height: var(--tile-h);
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.tile:active { transform: scale(.97); }
+
+/* 5px accent rule pinned to the bottom edge */
+.tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: var(--accent);
+}
+
+.tile--yellow { --accent: var(--yellow); }
+.tile--orange { --accent: var(--orange); }
+.tile--red    { --accent: var(--red); }
+.tile--purple { --accent: var(--purple); }
+.tile--blue   { --accent: var(--blue-light); }
+
+/* 48 x 48 icon slot, horizontally centred, 10px from the top */
+.tile__icon {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+/* default: centred inside the slot */
+.tile__icon .ic {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: none;
+  object-fit: cover;
+}
+
+/* per-icon geometry, straight from the Figma frame */
+.ic--attendence { left: 0; top: 3px; transform: none; width: 48px;   height: 45.474px; }
+.ic--drive      { left: 8px; top: 10px; transform: none; width: 32px; height: 32px; }
+.ic--dst        { left: 0; top: 0; transform: none; width: 48px;      height: 48px; }
+.ic--jamboard   { width: 38px; height: 34.438px; }
+.ic--maps       { width: 32px; height: 33px; }
+.ic--idea       { width: 32px; height: 30px; }
+.ic--covid      { width: 32px; height: 32px; }
+.ic--sheets     { width: 32px; height: 30px; }
+.ic--task       { width: 36px; height: 31.5px; }
+
+/* icons whose source art needs cropping */
+.crop { position: absolute; overflow: hidden; }
+.crop img { position: absolute; max-width: none; }
+
+.crop--calender { left: 0; top: 3px; width: 48px; height: 48px; }
+.crop--calender img { width: 112.5%; height: 100.14%; left: -4.17%; top: -0.07%; }
+
+.crop--hangout { left: 6px; top: 8px; width: 36px; height: 36px; }
+.crop--hangout img { width: 127.56%; height: 100%; left: -12.82%; top: 0; }
+
+.tile__label {
+  position: absolute;
+  top: 60px;
+  left: 4px;
+  right: 4px;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  text-align: center;
+  /* wrap at spaces only — never split a word mid-glyph on narrow screens */
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* --- bottom bar -------------------------------------------------- */
+
+.bottombar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  /* --bg is the Figma backing colour, but the nav fills the bar edge to edge
+     so it never shows. On a device with a home indicator the inset strip below
+     the nav does show, so carry the nav colour into it rather than leaving a
+     pale band under a dark bar. */
+  background: var(--dark);
+  border-top: 1px solid var(--grey-1);
+  padding-bottom: var(--safe-bottom);
+  z-index: 10;
+}
+
+.bottombar__nav {
+  height: var(--bar-h);
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  flex: none;
+}
+.nav-btn img { width: 22px; height: 22px; }
+.nav-btn--lg { padding: 0; }
+.nav-btn--lg img { width: 32px; height: 32px; }
+
+/* --- narrow phones (< 360px) ------------------------------------- */
+
+@media (max-width: 359px) {
+  :root { --gutter: 10px; }
+  .tile__label     { letter-spacing: .6px; }
+  .titlebar__title { font-size: 18px; }
+}
+
+/* ==================================================================
+   Screen: Store setup  (Digital Sales Tool entry point)
+   Figma node 1787:15156 "Onboarding 1" — base frame 360 x 668.
+   Namespaced `setup-*` so it can't collide with Personal Corner.
+================================================================== */
+
+.phone--setup {
+  padding-bottom: var(--bar-clear);
+}
+
+/* --- header --- */
+
+.setup-header {
+  position: relative;
+  height: 60px;
+  margin-top: var(--safe-top);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+/* The exported band is 360 x 74: a 60px header plus a 14px soft fade that
+   spills onto the page below it, so it must not be clipped. */
+.setup-header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 74px;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.setup-header__brand {
+  position: relative;
+  width: 130px;
+  height: 32px;
+  overflow: hidden;
+  flex: none;
+}
+.setup-header__brand img {
+  position: absolute;
+  width: 98%;
+  height: 93.93%;
+  left: 0.83%;
+  top: 3.46%;
+  max-width: none;
+}
+
+/* Only the store-favourites frame carries a gear. Positioned rather than
+   flexed: the design insets it 21px, not the header's own 16px padding. */
+.setup-header__settings {
+  position: absolute;
+  right: 21px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+.setup-header__settings img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* --- body --- */
+
+.setup {
+  padding: 0 12px;
+}
+
+.setup__dealer {
+  margin: 58px 0 0;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.setup__eyebrow {
+  margin: 32px 0 0 4px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.setup__grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* --- setup card --- */
+
+.setup-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 88px;
+  padding: 8px;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform .12s ease;
+}
+.setup-card:active { transform: scale(.98); }
+
+.setup-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.setup-card__title {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.setup-card__count {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--blue-light);
+}
+
+.setup-card__cta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.setup-card__cta img {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* --- bottom action bar --- */
+
+.setup-actions {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: var(--disabled);
+  border-top: 1px solid var(--grey-1);
+  padding-bottom: var(--safe-bottom);
+  z-index: 10;
+}
+
+.setup-actions__btn {
+  /* centred explicitly so the rule also fits an <a> in the enabled state */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  padding: 10px;
+  background: var(--disabled);
+  color: var(--white);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+.setup-actions__btn:disabled { cursor: default; }
+
+/* Once something is selected the bar goes navy (Figma node 1801:12934). */
+.setup-actions--active,
+.setup-actions--active .setup-actions__btn {
+  background: var(--dark);
+}
+
+/* ==================================================================
+   Screen: Select bed displays
+   Figma node 1787:15272 "Onboarding 2" — base frame 360 wide.
+   Reuses .setup-header; everything else namespaced `bd-*` / `mattress`.
+================================================================== */
+
+.phone--beds {
+  padding-bottom: var(--bar-clear);
+}
+
+/* --- pinned header + filter bar --- */
+
+/* .bd-sticky pins the header plus the search and count rows on the picker
+   screens; .sticky-top pins the header alone everywhere else. Same rules. */
+.bd-sticky,
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  /* opaque, or the content would scroll through it */
+  background: var(--grey-1);
+  /* the inset lives here rather than on .setup-header: a margin on the first
+     child would collapse out of the wrapper and scroll away with the content */
+  padding-top: var(--safe-top);
+}
+.bd-sticky .setup-header,
+.sticky-top .setup-header { margin-top: 0; }
+
+/* The header art is 74px in a 60px header — a 14px fade meant to sit over
+   whatever follows. Left unclipped: it reads as a soft edge under the pinned
+   header, and clipping would also cut off any dropdown opened from inside. */
+
+/* --- title / search / count strip --- */
+
+.bd-top {
+  margin: 0 12px;
+  border-bottom: 1px solid var(--cool-grey);
+  padding-bottom: 0;
+}
+
+.bd-eyebrow {
+  margin: 8px 0 0;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  /* the design specifies black here, not the usual --dark */
+  color: #000;
+}
+
+.bd-search {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 47px;
+  padding: 0 4px 0 14px;
+  background: var(--white);
+  border: 1px solid var(--blue-light);
+  border-radius: 8px;
+}
+
+.bd-search__icon {
+  flex: none;
+  width: 13.5px;
+  height: 14.5px;
+  object-fit: contain;
+}
+
+.bd-search__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.bd-search__input::placeholder { color: var(--blue); opacity: 1; }
+.bd-search__input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+.bd-meta {
+  margin: 14px 0 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bd-meta__count {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.bd-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.bd-sort img {
+  flex: none;
+  width: 16px;
+  height: 11.5px;
+  object-fit: contain;
+}
+
+/* --- sort menu (Figma node 2272:13193, 159 x 168) --- */
+
+.bd-sort-wrap {
+  position: relative;
+  flex: none;
+}
+
+.bd-sortmenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  width: 159px;
+  /* 3 rows of 52 + two 2px gaps + 8px tail = 168 */
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--white);
+  box-shadow: 0 4px 2px rgba(0, 0, 0, .1);
+}
+
+.bd-sortmenu__item {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 14px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  color: var(--dark);
+  text-align: left;
+  background: none;
+  transition: background .1s ease;
+}
+
+/* The Figma frame paints the cool-grey block behind one row without saying
+   whether it is hover or the current choice, so it serves as both. */
+.bd-sortmenu__item:hover,
+.bd-sortmenu__item:focus-visible,
+.bd-sortmenu__item[aria-checked="true"] {
+  background: var(--cool-grey);
+}
+
+/* --- mattress grid --- */
+
+.bd-grid {
+  margin: 16px 12px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+}
+
+.mattress {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  height: 96px;
+  padding: 8px;
+  text-align: left;
+  background: var(--white);
+  /* transparent rather than none, so selecting doesn't shift the layout */
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background .12s ease, border-color .12s ease, transform .12s ease;
+}
+.mattress:active { transform: scale(.98); }
+
+.mattress.is-selected {
+  background: var(--bg);
+  border-color: var(--blue);
+}
+
+.mattress__name {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.mattress__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mattress__price,
+.mattress__softness {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+/* --- bottom action bar --- */
+
+.bd-actions {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: stretch;
+  background: var(--dark);
+  border-top: 1px solid var(--grey-1);
+  z-index: 10;
+}
+
+/* The home-indicator inset sits on the children, not on the bar. Putting it
+   on the bar confines them to the top 56px, so the white divider stopped
+   short and left a band of bare navy under it. Now each child spans the full
+   height and pads its own content clear of the indicator. */
+.bd-actions__back,
+.bd-actions__confirm {
+  height: calc(56px + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+}
+
+.bd-actions__back {
+  flex: none;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  border-right: 1px solid var(--white);
+}
+.bd-actions__back img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.bd-actions__confirm {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px calc(10px + var(--safe-bottom));
+  background: var(--dark);
+  color: var(--white);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+
+/* ==================================================================
+   Screen: Store setup complete
+   Figma node 1801:12934 "Onboarding 3". Same shell as store setup —
+   only the recommendations rail below the grid is new.
+================================================================== */
+
+.rec {
+  margin-top: 32px;
+}
+
+.rec__eyebrow {
+  margin: 0 0 0 16px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+/* Wider than the frame in the design, so it scrolls sideways. Full-bleed
+   with asymmetric padding: 12 leading to line up with the grid, 16 trailing. */
+.rec__row {
+  margin-top: 12px;
+  padding: 0 16px 0 12px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.rec__row::-webkit-scrollbar { display: none; }
+
+.rec-card {
+  position: relative;
+  flex: none;
+  width: 162px;
+  /* no selected state here, and the border would push the badge 1px off the
+     card's top edge, since it hangs off the padding box */
+  border: 0;
+}
+
+.rec-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+/* Let the name take the slack so the badge is pinned to the right edge. */
+.rec-card__head .mattress__name {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Reserves the badge's width in the row so long names wrap before it. */
+.rec-card__flag {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 20px;
+}
+
+/* Ribbon hanging from the card's top edge: pulled up by the 8px padding. */
+.rec-card__badge {
+  position: absolute;
+  left: 0;
+  top: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;
+  background: var(--orange);
+  border-radius: 0 0 3.2px 3.2px;
+  filter: drop-shadow(0 1px .5px rgba(0, 0, 0, .06));
+}
+.rec-card__badge img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ==================================================================
+   Screen: Search from leads
+   Figma node 5704:18650 "Lead Name" — base frame 360 wide.
+   Reuses the pinned header, search and count row from the pickers;
+   only the card is new.
+================================================================== */
+
+.leads {
+  margin: 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  padding: 8px;
+  text-align: left;
+  background: var(--white);
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background .12s ease, box-shadow .12s ease, transform .12s ease;
+}
+.lead:active { transform: scale(.99); }
+
+/* An inset ring rather than a border: these cards are auto-height, so a real
+   border would make every card 2px taller than the frame's 56. */
+.lead.is-selected {
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--blue);
+}
+
+.lead__head {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  width: 100%;
+}
+
+.lead__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.lead__date {
+  flex: none;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 300;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.lead__phone {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+
+/* ==================================================================
+   Screen: Mattress detail
+   Figma node 1711:11278 "Mattress 1" — base frame 360 wide.
+   No Sleepwell header on this frame: the mattress block is the top.
+================================================================== */
+
+.phone--mx { padding-bottom: var(--bar-clear); }
+
+.mx-sticky {
+  background: var(--white);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--grey-1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* the pinned wrapper's own padding-top carries the device inset */
+.mx-sticky > :first-child { margin-top: 12px; }
+
+.mx-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0 12px;
+}
+
+.mx-head__name {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+/* reserves the ribbon's width so a long name wraps before it */
+.mx-head__flag {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 16px;
+}
+
+/* hangs from the top of the pinned block, like the card badges */
+.mx-head__badge {
+  position: absolute;
+  left: 0;
+  top: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  background: var(--orange);
+  border-radius: 0 0 4px 4px;
+  filter: drop-shadow(0 1px .5px rgba(0, 0, 0, .06));
+}
+.mx-head__badge img { width: 20px; height: 20px; object-fit: contain; }
+
+.mx-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mx-facts__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.mx-facts__softness,
+.mx-facts__price {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.mx-facts__blurb {
+  margin: 0 12px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--blue);
+}
+
+.mx-tags {
+  display: flex;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+.mx-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 5/11 not 6/12: Figma strokes inside the box, CSS outside it */
+  padding: 5px 11px;
+  border: 1px solid var(--grey-2);
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.mx-controls {
+  margin: 0 12px;
+  height: 48px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.mx-controls__seg {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+  border-radius: 8px;
+  transition: background .12s ease, color .12s ease;
+}
+/* 1px hairlines between the plain segments, not around the active one */
+.mx-controls__seg + .mx-controls__seg:not(.mx-controls__seg--info) {
+  box-shadow: inset 1px 0 0 var(--white);
+}
+.mx-controls__seg--info {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* --- condensed header after scrolling (Figma node 1883:15347) ---
+   Same block, small size: the name drops to 18/24 and the blurb, tags and
+   comfort row go, leaving name + softness + price. */
+
+.mx-sticky.is-compact {
+  gap: 2px;
+  padding-bottom: 8px;
+}
+.mx-sticky.is-compact > :first-child { margin-top: 8px; }
+
+.mx-sticky.is-compact .mx-head__name {
+  font-size: 18px;
+  line-height: 24px;
+}
+.mx-sticky.is-compact .mx-head__badge { top: -8px; }
+
+.mx-sticky.is-compact .mx-facts__blurb,
+.mx-sticky.is-compact .mx-tags,
+.mx-sticky.is-compact .mx-controls {
+  display: none;
+}
+
+.mx-head__name,
+.mx-head__badge {
+  transition: font-size .16s ease, line-height .16s ease, top .16s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mx-head__name,
+  .mx-head__badge { transition: none; }
+}
+
+/* --- sections --- */
+
+.mx { padding: 0 12px; }
+
+.mx-sec { margin-top: 32px; }
+/* the frame leaves this gap below the pinned block, which it positions
+   independently of the sections */
+.mx-sec:first-child { margin-top: 24px; }
+
+.mx-sec__eyebrow {
+  margin: 0 0 8px 4px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+/* --- layer breakup --- */
+
+/* three slides, one per layer group */
+.mx-carousel {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+.mx-carousel::-webkit-scrollbar { display: none; }
+
+.mx-layers {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  /* top-aligned: on the shorter slides the heading sits with the strip's top,
+     not floated to the middle of the card */
+  align-items: flex-start;
+  gap: 12px;
+  /* py-16, pr-12, pl-0 per the Figma frame */
+  padding: 16px 12px 16px 0;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* slides 2 and 3 use a different cut of the stack, scaled wider */
+.mx-layers__strip--alt img {
+  left: 3px;
+  top: -23.5px;
+  width: 651px;
+  height: 337px;
+}
+
+/* A 72px window onto a much wider cross-section, fading to white so the
+   photo blends into the card rather than being cut off. */
+.mx-layers__strip {
+  position: relative;
+  flex: none;
+  width: 72px;
+  height: 248px;
+  overflow: hidden;
+}
+.mx-layers__strip img {
+  position: absolute;
+  left: 6px;
+  top: -16px;
+  width: 522px;
+  height: 264px;
+  max-width: none;
+  object-fit: cover;
+}
+.mx-layers__strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Measured off the rendered frame: full contrast out to ~72% of the strip,
+     then a short fade to white by ~83%. A fade starting at 0 — which both the
+     export and my first attempt produced — washes the photo out everywhere. */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 72%,
+    var(--white) 83%
+  );
+}
+
+.mx-pin {
+  position: absolute;
+  /* 12, measured off the rendered frame — the export said 36 */
+  left: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--bg);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  color: var(--dark);
+}
+.mx-pin--static { position: static; flex: none; }
+
+.mx-layers__info {
+  flex: none;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mx-layers__title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.mx-layers__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mx-layer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.mx-layer__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mx-layer__name {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+}
+.mx-layer__desc {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+.mx-dots {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.mx-dots__dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--cool-grey);
+  transition: background .15s ease;
+}
+.mx-dots__dot.is-on { background: var(--blue); }
+
+/* --- thickness variants --- */
+
+.mx-thick {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 12px;
+}
+
+.mx-thick__row {
+  width: 296px;
+  margin: 0 20px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.mx-thick__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mx-thick__size  { color: var(--dark); }
+.mx-thick__price { color: var(--text-muted); }
+
+.mx-thick__rule {
+  width: 1px;
+  align-self: stretch;
+  background: var(--card-bg);
+}
+
+/* --- image gallery --- */
+
+.mx-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 12px;
+  background: var(--white);
+  border-radius: 12px;
+}
+.mx-gallery img {
+  width: 100%;
+  height: 114px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* --- related pillows --- */
+
+.mx-pillows {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 8px;
+  padding: 12px;
+  background: var(--white);
+  border-radius: 12px;
+}
+
+.mx-pillow {
+  display: flex;
+  flex-direction: column;
+}
+.mx-pillow img {
+  width: 100%;
+  height: 114px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.mx-pillow__name {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+}
+.mx-pillow__price {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+/* --- bottom bar --- */
+
+.mx-actions {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: stretch;
+  background: var(--white);
+  border-top: 1px solid var(--grey-1);
+  z-index: 10;
+}
+
+.mx-actions__pair {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  /* not two flex:1 items — with border-box their padding acts as a floor on
+     flex-basis:0, which made them 160/144 instead of 152/152 */
+  grid-template-columns: 1fr 1fr;
+}
+
+.mx-actions__back,
+.mx-actions__demo,
+.mx-actions__close {
+  height: calc(56px + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mx-actions__back {
+  flex: none;
+  width: 56px;
+  background: var(--dark);
+}
+.mx-actions__back img { width: 32px; height: 32px; object-fit: contain; }
+
+.mx-actions__demo {
+  min-width: 0;
+  gap: 8px;
+  padding-left: 16px;
+  padding-right: 20px;
+  background: var(--bg);
+  color: var(--dark);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+.mx-actions__demo img {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+.mx-actions__demo[aria-pressed="true"] { background: var(--card-bg); }
+
+.mx-actions__close {
+  min-width: 0;
+  /* longhand: the shorthand would wipe the shared safe-area padding-bottom */
+  padding-left: 10px;
+  padding-right: 10px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+
+/* ==================================================================
+   Screen: Select mattresses
+   Figma node 1733:12994 — base frame 360 wide. A matrix that scrolls
+   sideways past a softness rail pinned to the left edge.
+================================================================== */
+
+.sel-top {
+  /* flush under the header; the 32px box centres the label and the sort */
+  margin: 0 12px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sel-top .bd-eyebrow { margin: 0; }
+
+.sel-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.sel-sort img {
+  flex: none;
+  width: 16px;
+  height: 11.5px;
+  object-fit: contain;
+}
+
+/* --- the scrolling matrix --- */
+
+.sel {
+  margin-top: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.sel::-webkit-scrollbar { display: none; }
+
+.sel__grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  width: max-content;
+  padding-right: 16px;
+}
+
+/* Pinned to the left edge while the cards scroll past. The gradient fades
+   them out behind it rather than cutting hard. */
+.sel__rail {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  flex: none;
+  width: 56px;
+  padding-left: 16px;
+  background: linear-gradient(
+    to right,
+    var(--grey-1) 79.464%,
+    rgba(245, 245, 245, 0)
+  );
+}
+
+.sel__bar {
+  width: 32px;
+  /* four bands of 108 = one 96px row plus its 12px gap */
+  height: 432px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--yellow);
+}
+
+.sel__band {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  /* reads bottom-to-top, as the frame rotates it -90° */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.sel__band + .sel__band { border-bottom: 2px solid var(--white); }
+
+.sel__rows {
+  /* the rail starts 6px above the first row */
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sel__row {
+  display: flex;
+  gap: 12px;
+}
+
+.sel-mx {
+  position: relative;
+  flex: none;
+  width: 162px;
+  border: 0;
+}
+
+/* Unavailable: an inset ring rather than a border, so the card stays 96px
+   and the bestseller badge stays flush with its top edge. */
+.sel-mx--out {
+  background: var(--grey-1);
+  box-shadow: inset 0 0 0 1px var(--text-muted);
+}
+.sel-mx--out .mattress__name {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.sel-mx--out .mattress__price { color: var(--text-muted); }
+
+/* --- bottom bar with filter toggles --- */
+
+.sel-actions {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background: var(--bg);
+  border-top: 1px solid var(--grey-1);
+  padding-bottom: var(--safe-bottom);
+  z-index: 10;
+}
+
+.sel-actions__back {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+}
+.sel-actions__back img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.sel-actions__toggles {
+  flex: 1;
+  min-width: 0;
+  max-width: 304px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+.sel-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sel-toggle__label {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+  white-space: nowrap;
+}
+
+/* Drawn rather than imported: the frame's asset is a flat rect plus a circle,
+   and a real control can animate between states. */
+.toggle {
+  position: relative;
+  flex: none;
+  width: 52px;
+  height: 32px;
+  border-radius: 16px;
+  background: var(--cool-grey);
+  transition: background .15s ease;
+}
+.toggle::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: transform .15s ease;
+}
+.toggle[aria-checked="true"] { background: var(--blue); }
+.toggle[aria-checked="true"]::after { transform: translateX(20px); }
+
+/* ==================================================================
+   Screen: Reference mattress selection
+   Figma node 1740:11572 — base frame 360 wide. Three stacked sections;
+   the mattress card is the shared one.
+================================================================== */
+
+.ref {
+  padding: 0 12px;
+}
+
+.ref__eyebrow {
+  margin: 6px 0 0;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+.ref__eyebrow--gap { margin-top: 32px; }
+
+.ref__grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* no selected state here, and the badge hangs off the padding box */
+.ref-mx {
+  position: relative;
+  border: 0;
+}
+
+/* --- buzzword chips --- */
+
+.buzz {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.buzz__chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--dark);
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  /* the frame marks these nowrap: on the four hand-narrowed chips the label
+     eats into the padding rather than breaking onto a second line */
+  white-space: nowrap;
+  transition: background .12s ease;
+}
+.buzz__chip:active { background: var(--blue-light); }
+
+/* ==================================================================
+   Screen: Lead details
+   Figma node 5710:18704 "Lead Details" — base frame 360 wide.
+   Reuses the lead card and the mattress card.
+================================================================== */
+
+.ld {
+  padding: 0 12px;
+}
+
+.ld__eyebrow {
+  margin: 21px 0 0;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+/* the frame insets this second heading; the first sits flush */
+.ld__eyebrow--recs { margin: 40px 0 0 4px; }
+
+.ld__lead { margin-top: 7px; }
+
+.ld__grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* A mattress card carrying a status and a date instead of a softness grade.
+   gap:0 because the taller content leaves only ~6px for space-between; the
+   inherited 8px would overflow the fixed 96px card. */
+.ld-mx {
+  position: relative;
+  border: 0;
+  gap: 0;
+}
+
+.ld-mx__lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.status--sold { color: var(--green); }
+.status--demo { color: var(--yellow); }
+
+/* ==================================================================
+   Screen: Welcome
+   Figma node 1733:17297 "Welcome Screen" — base frame 360 wide.
+   Reuses .setup-header and .setup__dealer.
+================================================================== */
+
+.phone--welcome {
+  padding-bottom: var(--bar-clear);
+}
+
+.welcome {
+  padding: 0 12px;
+}
+
+.welcome__eyebrow {
+  margin: 32px 0 0 4px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+/* 20px, not the 32px above: the frame puts this block at y=328 with the size
+   row ending at 308 */
+.welcome__eyebrow--custom { margin-top: 20px; }
+
+/* --- mattress size picker --- */
+
+.sizes {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.size {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.size__pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--dark);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  transition: background .12s ease, color .12s ease;
+}
+
+/* measurements go muted until the size is the chosen one */
+.size__in {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--grey-3);
+}
+.size__cm {
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--grey-3);
+}
+
+.size.is-selected .size__pill {
+  background: var(--blue);
+  color: var(--white);
+}
+.size.is-selected .size__in,
+.size.is-selected .size__cm { color: var(--dark); }
+
+/* --- custom size --- */
+
+.custom {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.custom__field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.custom__input {
+  display: flex;
+  align-items: center;
+  height: 47px;
+  padding: 0 4px 0 14px;
+  background: var(--white);
+  border: 1px solid var(--cool-grey);
+  border-radius: 8px;
+}
+.custom__input input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+}
+.custom__input input::placeholder { color: var(--blue); opacity: 1; }
+
+.custom__label {
+  padding-left: 4px;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--grey-3);
+}
+
+/* "by" aligns with the inputs, not with the labels beneath them */
+.custom__by {
+  flex: none;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--blue);
+}
+
+/* --- bottom bar: secondary + primary --- */
+
+.welcome-actions {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--grey-1);
+  z-index: 10;
+}
+
+.welcome-actions__secondary,
+.welcome-actions__primary {
+  flex: 1;
+  min-width: 0;
+  height: calc(56px + var(--safe-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px calc(10px + var(--safe-bottom));
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+
+.welcome-actions__secondary {
+  background: var(--bg);
+  color: var(--dark);
+}
+.welcome-actions__primary {
+  background: var(--dark);
+  color: var(--white);
+}
+
+/* ==================================================================
+   Snackbar — Figma node 1880:14885 "Snackbars / Single Line"
+   A Material component, so it keeps Material's metrics and elevation.
+================================================================== */
+
+.snackbar {
+  position: fixed;
+  left: 50%;
+  /* rides above the action bar and the home indicator */
+  bottom: calc(56px + var(--safe-bottom) + 8px);
+  z-index: 30;
+  width: 344px;
+  max-width: calc(100% - 16px);
+  padding: 16px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .87);
+  box-shadow:
+    0 6px 10px rgba(0, 0, 0, .14),
+    0 1px 18px rgba(0, 0, 0, .12),
+    0 3px 5px rgba(0, 0, 0, .2);
+  color: var(--white);
+  /* the node specifies Roboto; fall back to the brand face, not to Arial */
+  font-family: Roboto, var(--font);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: .25px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(8px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+
+.snackbar.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snackbar { transition: none; }
+}
+
+
+/* ==================================================================
+   Overlays
+   Gallery       Figma node 1883:15068
+   Pillow card   Figma node 1787:14724
+   Breadcrumbs   Figma node 1733:17258
+================================================================== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .8);
+}
+
+/* --- full-size gallery --- */
+
+.zoom {
+  width: 328px;
+  max-width: 100%;
+}
+
+.zoom__stage {
+  width: 100%;
+  height: 246px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  /* the pinch handler owns every gesture in here */
+  touch-action: none;
+}
+
+.zoom__track {
+  display: flex;
+  height: 100%;
+  transition: transform .25s ease;
+}
+
+.zoom__track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 0 0;
+}
+
+.zoom__dots {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.zoom__dots button {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--cool-grey);
+  transition: background .15s ease;
+}
+.zoom__dots button.is-on { background: var(--blue); }
+
+/* --- pillow card --- */
+
+.pillow-card {
+  width: 328px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 12px;
+  background: var(--white);
+  border-radius: 12px;
+}
+
+.pillow-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pillow-card__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--dark);
+}
+.pillow-card__close {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pillow-card__close img { width: 16px; height: 16px; object-fit: contain; }
+
+/* wider than the card, so it scrolls sideways */
+.pillow-card__strip {
+  display: flex;
+  gap: 12px;
+  height: 216px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.pillow-card__strip::-webkit-scrollbar { display: none; }
+.pillow-card__strip img {
+  flex: none;
+  height: 216px;
+  border-radius: 12px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+.pillow-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+}
+.pillow-card__copy b { font-weight: 700; }
+
+.pillow-card__rule {
+  height: 1px;
+  background: var(--grey-2);
+}
+
+.pillow-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pillow-card__dims {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pillow-card__price {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--dark);
+}
+
+/* --- breadcrumbs (long-press on a back button) --- */
+
+.crumbs {
+  align-items: stretch;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+}
+
+.crumbs__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  /* reset the UA list defaults in full: its padding-inline-start: 40px was
+     holding the chips off the left edge */
+  margin: 0;
+  padding: 0 0 16px;
+  list-style: none;
+}
+
+/* flush to the left edge: rounded on the right only */
+.crumbs__item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: var(--white);
+  border-radius: 0 8px 8px 0;
+  filter: drop-shadow(0 1px .5px rgba(0, 0, 0, .06));
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--dark);
+  white-space: nowrap;
+}
+.crumbs__item--current {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.crumbs__bar {
+  display: flex;
+  align-items: stretch;
+  background: var(--white);
+  border-top: 1px solid var(--grey-1);
+  /* no padding-bottom here: the children carry the safe-area inset, and
+     setting it in both places counted it twice (125px bar instead of 91) */
+}
+
+.crumbs__close,
+.crumbs__home {
+  height: calc(56px + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crumbs__close {
+  flex: none;
+  width: 56px;
+  background: #FADFDD;   /* Red Indicator */
+}
+.crumbs__close img { width: 32px; height: 32px; object-fit: contain; }
+
+.crumbs__home {
+  flex: 1;
+  min-width: 0;
+  gap: 8px;
+  background: var(--bg);
+  color: var(--dark);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+.crumbs__home img { width: 16px; height: 16px; object-fit: contain; }
+
+/* --- desktop: sit the frame on a neutral field ------------------- */
+
+@media (min-width: 481px) {
+  body { background: #dfe6ee; }
+  .phone { box-shadow: 0 0 0 1px rgba(6, 43, 78, .08); }
+}

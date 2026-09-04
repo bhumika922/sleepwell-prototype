@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Personal Corner — iPhone mockup</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* --------------------------------------------------------------
+     Presentation shell only. Nothing here affects the app itself —
+     index.html stays the deliverable; this just frames it.
+  -------------------------------------------------------------- */
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #f3f7fc 0%, #dde5ee 55%, #cdd7e3 100%);
+    font-family: var(--font);
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* --- label --- */
+
+  .bar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 16px 6px;
+  }
+
+  .bar__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid rgba(6, 43, 78, .1);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+
+  .bar__label span {
+    font-weight: 500;
+    color: rgba(6, 43, 78, .45);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- stage --- */
+
+  .stage {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 16px 8px;
+  }
+
+  .scaler {
+    transform: scale(var(--scale, 1));
+    transform-origin: center center;
+    transition: transform .28s cubic-bezier(.2, .7, .3, 1);
+  }
+
+  /* --- the device --- */
+
+  .device {
+    position: relative;
+    width: calc(var(--sw) + var(--bezel) * 2);
+    height: calc(var(--sh) + var(--bezel) * 2);
+    --bezel: 11px;
+    border-radius: calc(var(--radius) + var(--bezel));
+    /* brushed-titanium rail */
+    background:
+      linear-gradient(145deg, #d8dce2 0%, #9aa3ad 18%, #6f7883 34%,
+                              #b9c0c8 52%, #767f8a 68%, #a8b0b9 84%, #767e88 100%);
+    padding: var(--bezel);
+    box-shadow:
+      0 2px 3px rgba(255, 255, 255, .55) inset,
+      0 -2px 3px rgba(0, 0, 0, .28) inset,
+      0 1px 1px rgba(255, 255, 255, .5),
+      0 28px 55px -18px rgba(9, 30, 55, .55),
+      0 60px 90px -40px rgba(9, 30, 55, .45);
+  }
+
+  /* thin black gasket between rail and glass */
+  .device::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--bezel) - 2px);
+    border-radius: calc(var(--radius) + 2px);
+    background: #05070a;
+    pointer-events: none;
+  }
+
+  .screen {
+    position: relative;
+    z-index: 1;
+    width: var(--sw);
+    height: var(--sh);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--grey-1);
+    isolation: isolate;
+  }
+
+  .screen iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* --- iOS chrome drawn over the app --- */
+
+  .statusbar {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 54px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--dark);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .1px;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .statusbar__right { display: flex; align-items: center; gap: 5px; }
+
+  .island {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 125px;
+    height: 37px;
+    border-radius: 999px;
+    background: #05070a;
+    z-index: 4;
+    pointer-events: none;
+  }
+  /* camera lens glint */
+  .island::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #2b3f57 0%, #131c28 45%, #05070a 78%);
+  }
+
+  .home {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 5px;
+    border-radius: 999px;
+    /* the nav bar carries into the inset strip, so this always sits on navy */
+    background: rgba(255, 255, 255, .92);
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  /* --- physical buttons --- */
+
+  .btn {
+    position: absolute;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #aab2bb, #78818c 45%, #99a1aa);
+    z-index: 0;
+  }
+  .btn--left  { left: -3px; }
+  .btn--right { right: -3px; }
+
+  .btn--action { top: 108px; height: 30px; }
+  .btn--up     { top: 158px; height: 62px; }
+  .btn--down   { top: 232px; height: 62px; }
+  .btn--power  { top: 178px; height: 100px; }
+
+  /* --- caption --- */
+
+  .caption {
+    flex: none;
+    text-align: center;
+    padding: 0 16px 18px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(6, 43, 78, .42);
+  }
+  .caption b { font-weight: 700; color: rgba(6, 43, 78, .6); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scaler { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="bar">
+    <p class="bar__label">iPhone 16 Pro <span>393 &times; 852 pt</span></p>
+  </div>
+
+  <div class="stage">
+    <div class="scaler" id="scaler">
+      <div class="device" style="--sw:393px; --sh:852px; --radius:55px">
+
+        <span class="btn btn--left btn--action"></span>
+        <span class="btn btn--left btn--up"></span>
+        <span class="btn btn--left btn--down"></span>
+        <span class="btn btn--right btn--power"></span>
+
+        <div class="screen">
+          <iframe id="app" src="index.html" title="Personal Corner"></iframe>
+
+          <div class="statusbar">
+            <span>9:41</span>
+            <span class="statusbar__right">
+              <!-- cellular -->
+              <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" aria-hidden="true">
+                <rect x="0"  y="8"   width="3" height="4"  rx="1"/>
+                <rect x="4.7" y="5.7" width="3" height="6.3" rx="1"/>
+                <rect x="9.4" y="3.1" width="3" height="8.9" rx="1"/>
+                <rect x="14.1" y="0" width="3" height="12"  rx="1"/>
+              </svg>
+              <!-- wi-fi -->
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                <path d="M1 4.1a10.4 10.4 0 0 1 14 0"/>
+                <path d="M3.6 6.9a6.7 6.7 0 0 1 8.8 0"/>
+                <path d="M6.2 9.6a2.9 2.9 0 0 1 3.6 0"/>
+              </svg>
+              <!-- battery -->
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none" aria-hidden="true">
+                <rect x=".6" y=".6" width="21" height="10.8" rx="3.1" stroke="currentColor" stroke-opacity=".38" stroke-width="1.1"/>
+                <rect x="2.2" y="2.2" width="15" height="7.6" rx="1.9" fill="currentColor"/>
+                <path d="M23 4.3v3.4a1.9 1.9 0 0 0 0-3.4Z" fill="currentColor" fill-opacity=".4"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="island"></div>
+          <div class="home"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="caption"><b>Personal Corner</b> — Sleepwell Virtual Salesman. Live page, not a picture: scroll and tap inside the screen.</p>
+
+<script>
+(function () {
+  var stage = document.querySelector('.stage');
+  var scaler = document.getElementById('scaler');
+  var app = document.getElementById('app');
+
+  var SCREEN = { w: 393, h: 852 };   // iPhone 16 Pro, points
+  var SAFE   = { top: 54, bottom: 34 };
+
+  // env(safe-area-inset-*) always reports 0 inside an iframe, so hand the app
+  // the insets this device would actually report. Same-origin only — over
+  // file:// this throws and the app just renders without insets.
+  function pushSafeArea() {
+    try {
+      var root = app.contentDocument.documentElement;
+      root.style.setProperty('--safe-top', SAFE.top + 'px');
+      root.style.setProperty('--safe-bottom', SAFE.bottom + 'px');
+    } catch (e) { /* cross-origin — nothing to do */ }
+  }
+
+  // shrink to fit the window; never scale past 1:1
+  function fit() {
+    var bezel = 22;
+    var scale = Math.min(
+      1,
+      (stage.clientWidth  - 24) / (SCREEN.w + bezel),
+      (stage.clientHeight - 12) / (SCREEN.h + bezel)
+    );
+    scaler.style.setProperty('--scale', scale.toFixed(4));
+  }
+
+  app.addEventListener('load', pushSafeArea);
+  window.addEventListener('resize', fit);
+  pushSafeArea();
+  fit();
+})();
+</script>
+</body>
+</html>

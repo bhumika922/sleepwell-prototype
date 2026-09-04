@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F5F5F5" />
+<title>Welcome · Sleepwell</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="phone phone--welcome">
+
+    <!-- Pinned: only the content below scrolls -->
+    <div class="sticky-top">
+      <header class="setup-header">
+        <img class="setup-header__bg" src="assets/img/header-bg.png" alt="" />
+        <a class="setup-header__brand" href="index.html" aria-label="Back to Personal Corner">
+          <img src="assets/img/sleepwell-logo.png" alt="Sleepwell" />
+        </a>
+        <a class="setup-header__settings" href="settings.html" aria-label="Settings">
+          <img src="assets/icons/settings-dark.svg" alt="" />
+        </a>
+      </header>
+    </div>
+
+    <main class="welcome">
+      <h1 class="setup__dealer">Tiwari &amp; Sons</h1>
+
+      <h2 class="welcome__eyebrow">Select a mattress size</h2>
+
+      <div class="sizes" role="radiogroup" aria-label="Mattress size">
+
+        <button class="size" type="button" role="radio" aria-checked="false">
+          <span class="size__pill">Single</span>
+          <span class="size__in">72” x 36”</span>
+          <span class="size__cm">182.9 cm x 91.4 cm</span>
+        </button>
+
+        <button class="size is-selected" type="button" role="radio" aria-checked="true">
+          <span class="size__pill">Queen</span>
+          <span class="size__in">72” x 60”</span>
+          <span class="size__cm">182.9 cm x 152.4 cm</span>
+        </button>
+
+        <button class="size" type="button" role="radio" aria-checked="false">
+          <span class="size__pill">King</span>
+          <span class="size__in">72” x 72”</span>
+          <span class="size__cm">182.9 cm x 182.9 cm</span>
+        </button>
+
+      </div>
+
+      <h2 class="welcome__eyebrow welcome__eyebrow--custom">Custom size</h2>
+
+      <div class="custom">
+        <label class="custom__field">
+          <span class="custom__input">
+            <input type="text" inputmode="decimal" placeholder="00.00”" aria-label="Length in inches" />
+          </span>
+          <span class="custom__label">Length</span>
+        </label>
+
+        <span class="custom__by" aria-hidden="true">by</span>
+
+        <label class="custom__field">
+          <span class="custom__input">
+            <input type="text" inputmode="decimal" placeholder="00.00”" aria-label="Breadth in inches" />
+          </span>
+          <span class="custom__label">Breadth</span>
+        </label>
+      </div>
+    </main>
+
+    <!-- Bottom bar: secondary + primary -->
+    <div class="welcome-actions">
+      <a class="welcome-actions__secondary" href="leads.html">Search Leads</a>
+      <a class="welcome-actions__primary" href="reference-mattresses.html">Get started</a>
+    </div>
+
+  </div>
+
+<script>
+// The design ships a selected and an unselected size, so the pills pick.
+(function () {
+  var group = document.querySelector('.sizes');
+
+  group.addEventListener('click', function (e) {
+    var picked = e.target.closest('.size');
+    if (!picked) return;
+    [].forEach.call(group.querySelectorAll('.size'), function (s) {
+      var on = s === picked;
+      s.classList.toggle('is-selected', on);
+      s.setAttribute('aria-checked', String(on));
+    });
+  });
+}());
+</script>
+</body>
+</html>

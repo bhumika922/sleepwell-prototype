@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F5F5F5" />
+<title>Settings · Sleepwell</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="phone phone--setup">
+
+    <!-- Pinned: only the content below scrolls -->
+    <div class="sticky-top">
+      <header class="setup-header">
+        <img class="setup-header__bg" src="assets/img/header-bg.png" alt="" />
+        <a class="setup-header__brand" href="index.html" aria-label="Back to Personal Corner">
+          <img src="assets/img/sleepwell-logo.png" alt="Sleepwell" />
+        </a>
+      </header>
+    </div>
+
+    <main class="setup">
+      <h1 class="setup__dealer">Settings</h1>
+
+      <h2 class="setup__eyebrow">Modify selection</h2>
+
+      <div class="setup__grid">
+
+        <a class="setup-card" href="bed-displays.html">
+          <span class="setup-card__text">
+            <span class="setup-card__title">Bed displays</span>
+            <span class="setup-card__count">10 selected</span>
+          </span>
+          <span class="setup-card__cta">
+            Edit
+            <img src="assets/icons/arrow-right.svg" alt="" />
+          </span>
+        </a>
+
+        <a class="setup-card" href="#">
+          <span class="setup-card__text">
+            <span class="setup-card__title">Standing Displays</span>
+            <span class="setup-card__count">8 selected</span>
+          </span>
+          <span class="setup-card__cta">
+            Edit
+            <img src="assets/icons/arrow-right.svg" alt="" />
+          </span>
+        </a>
+
+        <a class="setup-card" href="#">
+          <span class="setup-card__text">
+            <span class="setup-card__title">Cut out samples</span>
+            <span class="setup-card__count">11 selected</span>
+          </span>
+          <span class="setup-card__cta">
+            Edit
+            <img src="assets/icons/arrow-right.svg" alt="" />
+          </span>
+        </a>
+
+        <a class="setup-card" href="store-favourites.html">
+          <span class="setup-card__text">
+            <span class="setup-card__title">Store favourites</span>
+            <span class="setup-card__count">4 selected</span>
+          </span>
+          <span class="setup-card__cta">
+            Edit
+            <img src="assets/icons/arrow-right.svg" alt="" />
+          </span>
+        </a>
+
+      </div>
+    </main>
+
+    <!-- Display recommendations: scrolls sideways, wider than the frame -->
+    <section class="rec">
+      <h2 class="rec__eyebrow">Display recommendations</h2>
+
+      <div class="rec__row">
+
+        <div class="mattress rec-card">
+          <span class="rec-card__head">
+            <span class="mattress__name">Gen X 2.0</span>
+            <span class="rec-card__flag">
+              <span class="rec-card__badge" title="Bestseller">
+                <img src="assets/icons/bestseller-star.svg" alt="Bestseller" />
+              </span>
+            </span>
+          </span>
+          <span class="mattress__meta">
+            <span class="mattress__price">₹24,557</span>
+            <span class="mattress__softness">Gentle</span>
+          </span>
+        </div>
+
+        <div class="mattress rec-card">
+          <span class="rec-card__head">
+            <span class="mattress__name">Revital 4.0</span>
+            <span class="rec-card__flag">
+              <span class="rec-card__badge" title="Bestseller">
+                <img src="assets/icons/bestseller-star.svg" alt="Bestseller" />
+              </span>
+            </span>
+          </span>
+          <span class="mattress__meta">
+            <span class="mattress__price">₹35,769</span>
+            <span class="mattress__softness">Medium Soft</span>
+          </span>
+        </div>
+
+        <div class="mattress rec-card">
+          <span class="rec-card__head">
+            <span class="mattress__name">Latex Plus</span>
+            <span class="rec-card__flag">
+              <span class="rec-card__badge" title="Bestseller">
+                <img src="assets/icons/bestseller-star.svg" alt="Bestseller" />
+              </span>
+            </span>
+          </span>
+          <span class="mattress__meta">
+            <span class="mattress__price">₹49,302</span>
+            <span class="mattress__softness">Medium Soft</span>
+          </span>
+        </div>
+
+        <div class="mattress rec-card">
+          <span class="rec-card__head">
+            <span class="mattress__name">Impressions</span>
+            <span class="rec-card__flag">
+              <span class="rec-card__badge" title="Bestseller">
+                <img src="assets/icons/bestseller-star.svg" alt="Bestseller" />
+              </span>
+            </span>
+          </span>
+          <span class="mattress__meta">
+            <span class="mattress__price">₹63,817</span>
+            <span class="mattress__softness">Medium Firm</span>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Snackbar: confirms the save -->
+    <div class="snackbar" id="snackbar" role="status" aria-live="polite">
+      Your changes have been successfully saved.
+    </div>
+
+    <!-- Bottom bar. Save confirms, then continues to the welcome screen. -->
+    <div class="setup-actions setup-actions--active">
+      <button class="setup-actions__btn" type="button" id="save">Save</button>
+    </div>
+
+  </div>
+
+<script>
+// Snackbar (Figma node 2254:13162). Same Material component as the one on
+// store favourites, so it shares the .snackbar rules.
+(function () {
+  var snackbar = document.getElementById('snackbar');
+  var timer;
+
+  // Save confirms, then moves on. The pause is long enough to read the
+  // snackbar without stalling the flow; navigating immediately would show it
+  // for a single frame.
+  document.getElementById('save').addEventListener('click', function () {
+    snackbar.classList.add('is-visible');
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      window.location.href = 'welcome.html';
+    }, 1200);
+  });
+
+  snackbar.addEventListener('click', function () {
+    clearTimeout(timer);
+    snackbar.classList.remove('is-visible');
+  });
+}());
+</script>
+</body>
+</html>
