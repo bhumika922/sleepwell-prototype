@@ -488,7 +488,7 @@
       </a>
       <div class="mx-actions__pair">
         <button class="mx-actions__demo" type="button" aria-pressed="false">
-          <img src="assets/icons/checkbox.svg" alt="" />
+          <img src="assets/icons/checkbox.svg" alt="" id="mx-demo-icon" />
           Demo
         </button>
         <a class="mx-actions__close" href="#">Close sale</a>
@@ -603,8 +603,11 @@
   });
 
   var demo = document.querySelector('.mx-actions__demo');
+  var demoIcon = document.getElementById('mx-demo-icon');
   demo.addEventListener('click', function () {
-    demo.setAttribute('aria-pressed', String(demo.getAttribute('aria-pressed') !== 'true'));
+    var pressed = demo.getAttribute('aria-pressed') !== 'true';
+    demo.setAttribute('aria-pressed', String(pressed));
+    demoIcon.src = pressed ? 'assets/icons/checkbox-checked.svg' : 'assets/icons/checkbox.svg';
   });
 
   [].forEach.call(document.querySelectorAll('.toggle'), function (t) {
