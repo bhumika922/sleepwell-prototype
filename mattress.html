@@ -222,7 +222,7 @@
     </main>
 
     <!-- Comfort comparison (Softer), Figma node 1784:13399 -->
-    <div class="mx-recs" id="mx-recs" hidden>
+    <div class="mx-recs" id="mx-recs-softer" hidden>
 
       <div class="mx-recs__band mx-recs__band--up">
         <h2 class="mx-recs__eyebrow mx-recs__eyebrow--up">Softer upsell</h2>
@@ -326,6 +326,122 @@
 
     </div>
 
+    <!-- Comfort comparison (Similar), Figma node 1883:15070. Same five
+         mattresses per band as Softer — that's the design's own data, not
+         a copy-paste slip here. -->
+    <div class="mx-recs" id="mx-recs-similar" hidden>
+
+      <div class="mx-recs__band mx-recs__band--up">
+        <h2 class="mx-recs__eyebrow mx-recs__eyebrow--up">Similar upsell</h2>
+        <div class="mx-recs__row">
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Esteem</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹35,769</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">CCT 1.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹44,693</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <a class="mattress rec-card" href="mattress.html">
+            <span class="rec-card__head">
+              <span class="mattress__name">Spinetech Air Luxury</span>
+              <span class="rec-card__flag"><span class="rec-card__badge" title="Bestseller"><img src="assets/icons/bestseller-star.svg" alt="Bestseller" /></span></span>
+            </span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹38,978</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </a>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Eminence</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹44,712</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Revital 4.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹35,769</span>
+              <span class="mattress__softness">Medium Soft</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-recs__band mx-recs__band--down">
+        <h2 class="mx-recs__eyebrow mx-recs__eyebrow--down">Similar downsell</h2>
+        <div class="mx-recs__row">
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Spinetech</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹24,456</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <div class="mattress rec-card sel-mx--out">
+            <span class="rec-card__head"><span class="mattress__name">Dignity</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹22,097</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Revital 2.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹15,705</span>
+              <span class="mattress__softness">Medium Firm</span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">GenX 1.0</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹16,165</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+          <div class="mattress rec-card">
+            <span class="rec-card__head"><span class="mattress__name">Mable</span></span>
+            <span class="mattress__meta">
+              <span class="mattress__price">₹21,554</span>
+              <span class="mattress__softness-grade">
+                <span class="softness-indicator"><img src="assets/icons/softness-up.svg" alt="" /></span>
+                <span class="mattress__softness">Medium Soft</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Buzzword band (Figma node 1883:15070, "Blue Band Indicator"). Shows
+         only when this page was reached via a buzzword chip, on whichever
+         of Firmer/Similar/Softer is active — Info has no comparison, so no
+         buzzword context to show. -->
+    <div class="mx-buzzband" id="mx-buzzband" hidden>
+      <p class="mx-buzzband__text" id="mx-buzzband-text"></p>
+      <button class="mx-buzzband__reset" type="button" id="mx-buzzband-reset">Reset</button>
+    </div>
+
     <!-- Bottom bar -->
     <div class="mx-actions" id="mx-actions-default">
       <a class="mx-actions__back" href="reference-mattresses.html" aria-label="Back to reference mattresses">
@@ -341,7 +457,7 @@
     </div>
 
     <!-- Bottom bar: comfort comparison variant (Softer) -->
-    <div class="mx-actions mx-actions--softer" id="mx-actions-softer" hidden>
+    <div class="mx-actions mx-actions--toggles" id="mx-actions-toggles" hidden>
       <a class="mx-actions__back" href="reference-mattresses.html" aria-label="Back to reference mattresses">
         <img src="assets/icons/nav-back-32.svg" alt="" />
       </a>
@@ -410,29 +526,72 @@
   </div>
 
 <script>
-// The comfort row picks which segment is highlighted, and — for "Softer",
-// the only comparison with a design (Figma node 1784:13399) — swaps the
-// mattress's own sections for the upsell/downsell bands and swaps the
-// bottom bar for the Hide spring/coir toggles. Firmer/Similar have no
-// design yet, so they just restore the mattress view, same as Info.
+// The comfort row picks which segment is highlighted. Similar (Figma node
+// 1883:15070) and Softer (1784:13399) each swap the mattress's own sections
+// for their own upsell/downsell bands and swap the bottom bar for the Hide
+// spring/coir toggles; Firmer has no design yet, so on its own it just
+// restores the mattress view, same as Info.
+//
+// A page reached via a buzzword chip (?buzzword=Name) is the exception:
+// Similar is the default landing segment, and the toggle bar plus a
+// "'Name' buzzword applied" band stay up across all three of Firmer,
+// Similar and Softer — only Info drops them, since it isn't a comparison.
 (function () {
   var segs = [].slice.call(document.querySelectorAll('.mx-controls__seg'));
   var main = document.getElementById('mx-main');
-  var recs = document.getElementById('mx-recs');
+  var recsSimilar = document.getElementById('mx-recs-similar');
+  var recsSofter = document.getElementById('mx-recs-softer');
   var actionsDefault = document.getElementById('mx-actions-default');
-  var actionsSofter = document.getElementById('mx-actions-softer');
+  var actionsToggles = document.getElementById('mx-actions-toggles');
+  var buzzband = document.getElementById('mx-buzzband');
+  var buzzbandText = document.getElementById('mx-buzzband-text');
+  var buzzword = null;
+
+  function activeName() {
+    return document.querySelector('.mx-controls__seg--info').textContent.trim();
+  }
+
+  function render() {
+    var name = activeName();
+    var isSimilar = name === 'Similar';
+    var isSofter = name === 'Softer';
+    var isComparison = name === 'Firmer' || isSimilar || isSofter;
+
+    main.hidden = isSimilar || isSofter;
+    recsSimilar.hidden = !isSimilar;
+    recsSofter.hidden = !isSofter;
+
+    var showToggles = isSimilar || isSofter || (name === 'Firmer' && buzzword);
+    actionsDefault.hidden = showToggles;
+    actionsToggles.hidden = !showToggles;
+
+    var showBand = !!buzzword && isComparison;
+    buzzband.hidden = !showBand;
+    if (showBand) buzzbandText.textContent = "'" + buzzword + "' buzzword applied";
+  }
+
+  function activate(name) {
+    segs.forEach(function (s) { s.classList.toggle('mx-controls__seg--info', s.textContent.trim() === name); });
+    render();
+  }
 
   segs.forEach(function (seg) {
-    seg.addEventListener('click', function () {
-      segs.forEach(function (s) { s.classList.toggle('mx-controls__seg--info', s === seg); });
-
-      var softer = seg.textContent.trim() === 'Softer';
-      main.hidden = softer;
-      recs.hidden = !softer;
-      actionsDefault.hidden = softer;
-      actionsSofter.hidden = !softer;
-    });
+    seg.addEventListener('click', function () { activate(seg.textContent.trim()); });
   });
+
+  buzzband.querySelector('#mx-buzzband-reset').addEventListener('click', function () {
+    buzzword = null;
+    var url = new URL(location.href);
+    url.searchParams.delete('buzzword');
+    history.replaceState(null, '', url);
+    render();
+  });
+
+  var fromBuzzword = new URLSearchParams(location.search).get('buzzword');
+  if (fromBuzzword) {
+    buzzword = fromBuzzword;
+    activate('Similar');
+  }
 
   var demo = document.querySelector('.mx-actions__demo');
   demo.addEventListener('click', function () {

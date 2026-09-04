@@ -278,10 +278,25 @@ orange → red → purple → light blue, matching the design.
   rows and the section below drops 60px. Real chips will not come
   pre-measured — if these become data-driven, expect the wrap to differ and
   drop the inline widths rather than trying to preserve them.
-- The buzzword chips are inert — no node for what follows. **See All
-  Mattresses** opens the full catalogue, and every mattress card on that
-  screen opens `mattress.html`, so the detail shown is always Spinetech Air's
-  — the frame only specifies one.
+- **A buzzword chip opens `mattress.html?buzzword=<name>`**, landing on the
+  Similar comparison with a `'<name>' buzzword applied` band and a Reset
+  link above the bottom bar (Figma node 1883:15070, "Blue Band Indicator").
+  Nothing actually filters by the buzzword — there's no data behind it — so
+  every buzzword lands on the same static Similar/Softer card lists; Reset
+  just dismisses the band and clears the query param, it doesn't undo a
+  filter. **See All Mattresses** opens the full catalogue instead, and every
+  mattress card on that screen opens `mattress.html`, so the detail shown is
+  always Spinetech Air's — the frame only specifies one.
+- **The mattress detail's comfort row (Firmer/Similar/Softer/Info)** only has
+  designs for Similar (node 1883:15070) and Softer (1784:13399): each swaps
+  the mattress's own sections for that comparison's upsell/downsell bands —
+  identical mattresses and prices in both, which is the design's own data,
+  not a copy-paste slip — and swaps the bottom bar for Hide spring/coir
+  toggles that flip but filter nothing (same as their counterpart on Select
+  mattresses). Firmer has no design yet, so on its own it just restores the
+  mattress view, same as Info; reached via a buzzword chip, its toggle bar
+  and buzzword band stay up anyway, per that flow's own spec, even though
+  the section below it is still the plain mattress view.
 - **Overlays.** Tapping a gallery image opens it full size with pinch-to-zoom
   (two-pointer pinch, drag to pan when zoomed, double-tap for 1x/2x, and wheel
   zoom so the gesture is also reachable on a trackpad); the first pillow opens

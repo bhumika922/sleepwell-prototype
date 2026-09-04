@@ -1699,7 +1699,7 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
 
 /* Bottom bar variant for the comparison view: back + two filter toggles,
    in place of the mattress's own Demo/Close sale bar. */
-.mx-actions--softer { background: var(--bg); }
+.mx-actions--toggles { background: var(--bg); }
 
 .mx-toggles {
   flex: 1;
@@ -1724,6 +1724,42 @@ a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transpar
   text-transform: uppercase;
   color: var(--dark);
   white-space: nowrap;
+}
+
+/* Buzzword band: sits directly above the toggle bar (Figma "Blue Band
+   Indicator", node 1883:15070) — only shown when this page was reached via
+   a buzzword chip. */
+.mx-buzzband {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(56px + var(--safe-bottom));
+  width: 100%;
+  max-width: 480px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  background: var(--blue);
+  z-index: 10;
+}
+.mx-buzzband__text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--white);
+  font-size: 14px;
+  line-height: 18px;
+}
+.mx-buzzband__reset {
+  flex: none;
+  color: var(--white);
+  font-size: 11px;
+  line-height: 16px;
+  text-decoration: underline;
 }
 
 /* ==================================================================
